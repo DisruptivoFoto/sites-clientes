@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RTS Physical Therapy of Bedford | Recover Like An Athlete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{
+    --bg:#070D14;
+    --bg-soft:#0F1B28;
+    --surface:#FFFFFF;
+    --surface-alt:#EEF3F6;
+    --ink:#10202C;
+    --gray-600:#56707D;
+    --gray-400:#8CA3AD;
+    --line:#DCE6EA;
+    --line-dark:rgba(242,246,248,.18);
+    --off:#F2F6F8;
+    --brand-500:#008ABE;
+    --brand-400:#36AEDB;
+    --brand-100:#E3F4FA;
+    --star:#FFB020;
+    --shadow: 0 10px 30px rgba(10,37,64,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Barlow',sans-serif;color:var(--ink);background:var(--surface);line-height:1.55;}
+  h1,h2,h3,h4,.display{font-family:'Archivo',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease, background .15s ease, border-color .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--brand-500);color:#fff;}
+  .btn-primary:hover{background:#0677A3;}
+  .btn-outline-light{background:transparent;color:#fff;border-color:rgba(242,246,248,.4);}
+  .btn-outline-light:hover{border-color:#fff;}
+  .btn-outline-dark{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-outline-dark:hover{border-color:var(--brand-500);color:var(--brand-500);}
+  .btn-on-brand{background:#fff;color:var(--bg);}
+  .btn-on-brand:hover{background:var(--off);}
+
+  /* Utility bar */
+  .utility-bar{background:var(--bg);color:#9AB3C2;font-size:12.5px;border-bottom:1px solid var(--line-dark);}
+  .utility-bar .container{display:flex;align-items:center;justify-content:space-between;padding:9px 24px;flex-wrap:wrap;gap:8px;}
+  .utility-links{display:flex;align-items:center;gap:22px;}
+  .utility-links a{opacity:.9;transition:opacity .15s;}
+  .utility-links a:hover{opacity:1;}
+  @media(max-width:760px){.utility-links span:not(:first-child){display:none;}}
+
+  /* Header / main nav — dark, sticky, always solid (no photo to float over anymore) */
+  header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line-dark);transition:box-shadow .3s ease;}
+  header.scrolled{box-shadow:0 10px 26px rgba(0,0,0,.35);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Archivo',sans-serif;font-weight:900;font-size:21px;color:#fff;letter-spacing:-.01em;text-transform:uppercase;}
+  .logo .dot{width:9px;height:9px;background:var(--brand-400);border-radius:50%;display:inline-block;}
+  .logo span.light{font-weight:500;color:#8FA3AF;text-transform:none;font-family:'Barlow',sans-serif;font-size:13px;letter-spacing:.06em;margin-left:2px;}
+  .nav-links{display:flex;gap:28px;font-size:13.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#fff;}
+  .nav-links a{opacity:.8;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  @media(max-width:900px){.nav-links{display:none;}}
+
+  /* ===== Hero — bold editorial (ref: The Romans): huge type, inline photo chip ===== */
+  .hero{background:var(--bg);padding:70px 0 0;overflow:hidden;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,138,190,.14);color:var(--brand-400);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:3px;margin-bottom:22px;}
+  .hero-eyebrow .blip{width:7px;height:7px;background:var(--brand-400);border-radius:50%;}
+  .hero h1{color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.88;font-size:clamp(2.6rem,7.4vw,6.2rem);}
+  .hero h1 .row{display:flex;align-items:center;flex-wrap:wrap;gap:0 18px;}
+  .hero h1 .skew{display:inline-block;transform:skewX(-10deg);}
+  .hero h1 .accent{color:var(--brand-400);}
+  .hero h1 .chip{display:inline-block;width:clamp(76px,10vw,150px);height:clamp(44px,6.6vw,92px);border-radius:4px;overflow:hidden;transform:skewX(-10deg);vertical-align:middle;}
+  .hero h1 .chip img{width:140%;height:100%;object-fit:cover;transform:translateX(-16%) skewX(10deg) scale(1.25);object-position:58% 25%;filter:grayscale(1) contrast(1.1);}
+  .hero-sub{margin-top:36px;max-width:560px;font-size:17px;color:#B9C8D1;}
+  .hero-actions{display:flex;align-items:center;gap:20px;margin-top:34px;flex-wrap:wrap;}
+  .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:72px;flex-wrap:wrap;gap:24px;padding-bottom:40px;}
+  .hero-foot .locations{font-size:13.5px;color:#8FA3AF;max-width:340px;}
+  .hero-foot .stats{display:flex;gap:30px;flex-wrap:wrap;}
+  .hero-foot .stats b{display:block;font-family:'Archivo',sans-serif;font-size:20px;font-weight:700;color:#fff;}
+  .hero-foot .stats span{display:block;font-size:11px;color:#8FA3AF;margin-top:2px;text-transform:uppercase;letter-spacing:.04em;}
+  .scroll-box{width:42px;height:42px;border:1.5px solid rgba(242,246,248,.4);border-radius:4px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;}
+  @media(max-width:620px){
+    .hero h1 .chip{width:64px;height:38px;}
+    .hero-foot{flex-direction:column;align-items:flex-start;}
+    .scroll-box{display:none;}
+  }
+
+  /* ===== Schedule — dedicated dark section below the step flow ===== */
+  .schedule-section{background:var(--bg-soft);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:64px 0;}
+  .schedule-section .eyebrow{color:var(--brand-400);}
+  .schedule-section h2{color:#fff;}
+  .schedule-section p{color:#B9C8D1;}
+  .schedule-row{display:grid;grid-template-columns:1fr 1fr auto auto;gap:16px;align-items:end;margin-top:36px;}
+  @media(max-width:900px){.schedule-row{grid-template-columns:1fr 1fr;}}
+  .field label{display:block;font-size:11.5px;font-weight:700;color:#8FA3AF;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+  .field select{width:100%;padding:13px 14px;border-radius:4px;border:1.5px solid rgba(255,255,255,.25);font-size:13.5px;color:#fff;background:rgba(255,255,255,.06);font-family:'Barlow',sans-serif;}
+  .field select:focus{outline:none;border-color:var(--brand-400);}
+  .field select option{color:var(--ink);}
+  .schedule-phone{display:flex;flex-direction:column;color:#fff;white-space:nowrap;}
+  .schedule-phone span{font-size:11px;color:#8FA3AF;text-transform:uppercase;letter-spacing:.05em;}
+  .schedule-phone b{font-family:'Archivo',sans-serif;font-size:19px;font-weight:700;}
+  @media(max-width:600px){.schedule-row{grid-template-columns:1fr 1fr;} .schedule-phone,#scheduleBtn{grid-column:1/-1;}}
+
+  /* Quick actions — connected step flow */
+  .quick{background:var(--bg);padding:64px 0;}
+  .quick-eyebrow{text-align:center;color:var(--brand-400);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:28px;}
+  .quick-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:860px){.quick-grid{grid-template-columns:repeat(2,1fr);}}
+  .quick-connector{position:absolute;left:8%;right:8%;top:46px;height:0;border-top:2px dashed rgba(54,174,219,.4);z-index:0;}
+  .quick-connector .node{position:absolute;top:0;width:9px;height:9px;border-radius:50%;background:var(--brand-400);transform:translate(-50%,-50%);box-shadow:0 0 0 5px var(--bg);}
+  @media(max-width:860px){.quick-connector{display:none;}}
+  .quick-card{position:relative;overflow:hidden;background:var(--bg-soft);border:1px solid var(--line-dark);border-radius:6px;padding:24px;color:#fff;transition:transform .3s ease, border-color .3s ease;z-index:1;}
+  .quick-card:hover{transform:translateY(-6px);border-color:var(--brand-500);}
+  .quick-card .step{position:absolute;top:16px;right:18px;font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:1px;}
+  .quick-card .ic{position:relative;z-index:1;width:44px;height:44px;border-radius:4px;background:var(--brand-500);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:19px;}
+  .quick-card h4{font-weight:700;font-size:16px;margin-bottom:4px;text-transform:uppercase;letter-spacing:-.01em;}
+  .quick-card p{position:relative;z-index:1;font-size:12.5px;color:#AFCBE0;}
+
+  section{padding:88px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .eyebrow{color:var(--brand-500);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;display:block;}
+  .section-head h2{font-size:clamp(28px,4vw,40px);color:var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;}
+  .section-head p{color:var(--gray-600);margin-top:14px;font-size:16px;}
+
+  /* Benefits */
+  .benefits{background:var(--surface-alt);}
+  .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:960px){.benefits-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:620px){.benefits-grid{grid-template-columns:1fr;}}
+  .benefit{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px;transition:transform .3s ease, border-color .3s ease;}
+  .benefit:hover{transform:translateY(-5px);border-color:var(--brand-500);}
+  .benefit .ic{flex:none;width:44px;height:44px;border-radius:4px;background:var(--brand-500);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
+  .benefit h4{font-weight:700;font-size:16px;margin-bottom:6px;color:var(--ink);text-transform:uppercase;letter-spacing:-.01em;}
+  .benefit p{font-size:13.5px;color:var(--gray-600);}
+
+  /* Team */
+  .team-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
+  @media(max-width:960px){.team-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:560px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+  .team-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;margin-bottom:14px;filter:grayscale(.3);transition:transform .35s ease, filter .35s ease;}
+  .team-card:hover img{transform:translateY(-4px);filter:grayscale(0);}
+  .team-card h4{font-weight:700;font-size:15px;color:var(--ink);text-transform:uppercase;letter-spacing:-.01em;}
+  .team-card p{font-size:12.5px;color:var(--gray-600);margin-top:2px;}
+
+  /* Gallery scroller: two rows, opposite directions, pause on hover */
+  .gallery-rows{display:flex;flex-direction:column;gap:22px;padding:12px 0 8px;}
+  .gallery-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+  .gallery-track{display:flex;width:max-content;gap:22px;animation:galleryLeft 60s linear infinite;}
+  .gallery-track.reverse{animation-name:galleryRight;}
+  .gallery-wrap:hover .gallery-track{animation-play-state:paused;}
+  @keyframes galleryLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  @keyframes galleryRight{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+  .gallery-card{position:relative;width:280px;height:320px;flex-shrink:0;border-radius:6px;overflow:hidden;display:block;box-shadow:0 8px 20px rgba(10,37,64,.12);transition:transform .5s ease, box-shadow .5s ease;}
+  .gallery-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(10,37,64,.26);}
+  .gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;filter:grayscale(.55) contrast(1.05);}
+  .gallery-card:hover img{transform:scale(1.1);filter:grayscale(0) contrast(1.05);}
+  .gallery-card .overlay{position:absolute;inset:0;background:linear-gradient(0deg, var(--bg) 0%, rgba(7,13,20,.6) 42%, rgba(7,13,20,.05) 75%);}
+  .gallery-card .content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;}
+  .gallery-card .gic{width:40px;height:40px;border-radius:4px;background:var(--brand-500);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px;}
+  .gallery-card h4{font-weight:700;font-size:16.5px;margin-bottom:4px;text-transform:uppercase;letter-spacing:-.01em;}
+  .gallery-card p{font-size:12.5px;color:#D7E8F2;}
+  @media(max-width:600px){.gallery-card{width:230px;height:280px;}}
+
+  /* Rating / social proof */
+  .proof{position:relative;overflow:hidden;background:var(--bg);color:#fff;border-radius:6px;margin:0 24px;padding:56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;border:1px solid var(--line-dark);}
+  .proof-left h3{font-weight:700;font-size:26px;margin-bottom:10px;text-transform:uppercase;letter-spacing:-.01em;}
+  .proof-left p{color:#AFCBE0;max-width:420px;}
+  .proof-score{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.06);padding:22px 30px;border-radius:4px;border:1px solid var(--line-dark);}
+  .proof-score .num{font-size:44px;font-weight:900;}
+  .proof-score .stars{color:var(--star);font-size:18px;letter-spacing:2px;}
+  .proof-score small{color:#AFCBE0;font-size:12.5px;}
+
+  /* Getting Started */
+  .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.pay-grid{grid-template-columns:1fr;}}
+  .pay-card{border-radius:6px;padding:30px;background:#fff;border:1px solid var(--line);text-align:center;transition:transform .3s ease, border-color .3s ease;}
+  .pay-card:hover{transform:translateY(-6px);border-color:var(--brand-500);}
+  .pay-card .ic{width:48px;height:48px;margin:0 auto 16px;border-radius:4px;background:var(--brand-500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .pay-card h4{font-weight:700;font-size:17px;margin-bottom:8px;text-transform:uppercase;letter-spacing:-.01em;}
+  .pay-card p{font-size:13.5px;color:var(--gray-600);}
+
+  /* About */
+  .about{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.about{grid-template-columns:1fr;}}
+  .about-media{position:relative;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);height:440px;}
+  .about-media img{height:440px;width:100%;object-fit:cover;}
+  .about-badge{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:4px;padding:14px 18px;box-shadow:0 14px 30px rgba(10,37,64,.22);display:flex;align-items:center;gap:12px;}
+  .about-badge .stars{color:var(--star);font-size:15px;letter-spacing:1px;}
+  .about-badge b{font-size:17px;font-weight:700;color:var(--ink);display:block;}
+  .about-badge small{color:var(--gray-600);font-size:11.5px;}
+  .about-name-tag{position:absolute;top:20px;left:20px;background:rgba(7,13,20,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:10px 16px;color:#fff;}
+  .about-name-tag b{display:block;font-size:15px;font-weight:700;}
+  .about-name-tag small{display:block;font-size:11px;color:#BFDDEC;margin-top:1px;}
+  .about-list{margin-top:22px;display:flex;flex-direction:column;gap:14px;}
+  .about-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--gray-600);}
+  .about-list b{color:var(--ink);}
+  .check{flex:none;width:22px;height:22px;border-radius:4px;background:var(--brand-500);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;}
+
+  /* Contact */
+  .contact{background:var(--surface-alt);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{background:#fff;border-radius:6px;padding:36px;box-shadow:var(--shadow);border:1px solid var(--line);}
+  .contact-item{display:flex;gap:14px;margin-bottom:22px;}
+  .contact-item .ic{flex:none;width:40px;height:40px;border-radius:4px;background:var(--brand-100);color:var(--brand-500);display:flex;align-items:center;justify-content:center;}
+  .contact-item h5{font-size:14px;color:var(--gray-600);margin-bottom:2px;font-weight:600;}
+  .contact-item p{font-weight:700;font-size:15px;}
+  .map-wrap{border-radius:6px;overflow:hidden;box-shadow:var(--shadow);min-height:340px;filter:grayscale(.2) contrast(1.05);}
+  .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;}
+
+  /* CTA banner */
+  .cta-banner{background:var(--bg);border:1px solid var(--line-dark);color:#fff;text-align:center;border-radius:6px;margin:0 24px;padding:64px 24px;}
+  .cta-banner h2{font-weight:900;font-size:clamp(26px,4vw,34px);margin-bottom:14px;text-transform:uppercase;letter-spacing:-.01em;}
+  .cta-banner p{color:#D7E8F2;max-width:520px;margin:0 auto 28px;}
+
+  footer{background:var(--bg);color:#8FA3AF;padding:56px 0 24px;margin-top:88px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr;}}
+  footer h5{color:#fff;font-weight:700;font-size:15px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.03em;}
+  footer li{margin-bottom:10px;font-size:14px;}
+  footer .foot-logo{display:flex;align-items:center;gap:8px;color:#fff;font-weight:900;font-size:19px;margin-bottom:12px;text-transform:uppercase;}
+  .foot-bottom{border-top:1px solid var(--line-dark);margin-top:40px;padding-top:20px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#6E8794;}
+  .foot-signature{font-weight:400;}
+  .foot-signature b{font-weight:700;letter-spacing:.14em;color:var(--brand-400);transition:color .2s;}
+  .foot-signature:hover b{color:var(--star);}
+
+  .phone-float{position:fixed;bottom:24px;right:24px;background:var(--brand-500);color:#fff;width:56px;height:56px;border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.35);z-index:60;font-size:24px;transition:transform .4s ease;}
+  .phone-float:hover{transform:scale(1.08) rotate(-4deg);}
+  .phone-float .ping{position:absolute;top:-4px;right:-4px;width:14px;height:14px;background:#FF4D4D;border-radius:50%;border:2px solid var(--bg);animation:pulseDot 2s ease-in-out infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(1.2);}}
+
+  /* Scroll reveal (progressive enhancement) */
+  .reveal, .reveal-stagger > *{opacity:1;transform:none;}
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.04s;}
+  .js .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.09s;}
+  .js .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.14s;}
+  .js .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.19s;}
+  .js .reveal-stagger.is-visible > *:nth-child(5){transition-delay:.24s;}
+  .js .reveal-stagger.is-visible > *:nth-child(6){transition-delay:.29s;}
+  .js .reveal-stagger.is-visible > *:nth-child(7){transition-delay:.34s;}
+  .js .reveal-stagger.is-visible > *:nth-child(8){transition-delay:.39s;}
+  .js .reveal-stagger.is-visible > *:nth-child(9){transition-delay:.44s;}
+  .js .reveal-stagger.is-visible > *:nth-child(10){transition-delay:.49s;}
+
+  @media (prefers-reduced-motion: reduce){
+    .gallery-track{animation:none;}
+    .js .reveal, .js .reveal-stagger > *{transition:none;opacity:1;transform:none;}
+    .phone-float .ping{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-links">
+      <span>4153 Bedford Rd #200, Bedford, TX 76021</span>
+      <span>(817) 288-0121</span>
+    </div>
+    <div class="utility-links">
+      <a href="https://www.google.com/maps/place/RTS+Physical+Therapy+of+Bedford/@32.8448316,-97.102084,17z" target="_blank">★ 5.0 · 245 Google reviews</a>
+    </div>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <div class="nav">
+    <div class="logo"><span class="dot"></span>RTS<span class="light">PHYSICAL THERAPY</span></div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why-rts">Why RTS</a>
+      <a href="#get-started">Get Started</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-on-brand" href="tel:+18172880121">📞 (817) 288-0121</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow reveal"><span class="blip"></span> RTS Physical Therapy · Bedford, TX</span>
+    <h1 class="reveal">
+      <div class="row">RECOVER <span class="skew accent">LIKE</span></div>
+      <div class="row">
+        <span class="chip"><img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=600&q=80&auto=format&fit=crop" alt=""></span>
+        AN ATHLETE
+      </div>
+    </h1>
+    <p class="hero-sub reveal">Orthopedic and sports-medicine physical therapy led by Doctors of Physical Therapy — built for anyone who refuses to sit still, from weekend lifters to working professionals.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="tel:+18172880121">📞 Call to Schedule</a>
+      <a class="btn btn-outline-light" href="#services">See Services</a>
+    </div>
+    <div class="hero-foot">
+      <div class="locations">Bedford, TX — part of the RTS network, 7 clinics across North Texas since 2003.</div>
+      <div class="stats">
+        <div><b>23</b><span>Years</span></div>
+        <div><b>DPT</b><span>Led Care</span></div>
+        <div><b>7</b><span>Clinics</span></div>
+      </div>
+      <div class="scroll-box">↓</div>
+    </div>
+  </div>
+</section>
+
+<div class="quick">
+  <div class="container">
+    <div class="quick-eyebrow reveal">Your Path to Recovery</div>
+    <div class="quick-grid reveal-stagger">
+      <div class="quick-connector">
+        <span class="node" style="left:12.5%"></span>
+        <span class="node" style="left:37.5%"></span>
+        <span class="node" style="left:62.5%"></span>
+        <span class="node" style="left:87.5%"></span>
+      </div>
+      <a class="quick-card" href="tel:+18172880121">
+        <span class="step">01</span>
+        <div class="ic">📞</div>
+        <h4>Call Bedford Clinic</h4>
+        <p>No physician referral needed in Texas for up to 30 days</p>
+      </a>
+      <a class="quick-card" href="#about">
+        <span class="step">02</span>
+        <div class="ic">🩺</div>
+        <h4>Evaluation with a DPT</h4>
+        <p>One-on-one assessment with a Doctor of Physical Therapy</p>
+      </a>
+      <a class="quick-card" href="#services">
+        <span class="step">03</span>
+        <div class="ic">📋</div>
+        <h4>Personalized Plan</h4>
+        <p>Treatment built around your diagnosis and goals</p>
+      </a>
+      <a class="quick-card" href="#contact">
+        <span class="step">04</span>
+        <div class="ic">📍</div>
+        <h4>Bedford, TX</h4>
+        <p>4153 Bedford Rd #200</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="schedule-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Schedule</span>
+      <h2 style="font-size:32px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;">Ready when you are</h2>
+      <p style="margin-top:12px;max-width:560px;">Tell us what you're dealing with and we'll get you in front of a DPT — no referral required in Texas for your first 30 days.</p>
+    </div>
+    <div class="schedule-row reveal">
+      <div class="field">
+        <label for="fieldTreatment">Treatment Interest</label>
+        <select id="fieldTreatment">
+          <option value="">Not sure yet</option>
+          <option>Manual Therapy</option>
+          <option>Pediatric Therapy</option>
+          <option>Vestibular Therapy</option>
+          <option>Return to Work Therapy</option>
+          <option>Sports Therapy</option>
+          <option>Laser Therapy</option>
+          <option>Dry Needling</option>
+          <option>Golf Performance Assessment</option>
+          <option>Barbell Rehab</option>
+          <option>Kinesio Taping</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fieldPeriod">Preferred Time</label>
+        <select id="fieldPeriod">
+          <option value="">Any time</option>
+          <option>Morning</option>
+          <option>Afternoon</option>
+        </select>
+      </div>
+      <div class="schedule-phone">
+        <span>Bedford Clinic</span>
+        <b>(817) 288-0121</b>
+      </div>
+      <a id="scheduleBtn" class="btn btn-primary" href="tel:+18172880121">Call Now →</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-bottom:56px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>Orthopedic &amp; Sports Medicine Physical Therapy</h2>
+      <p>Evidence-based treatment across the full spectrum of orthopedic, neurological, and sports performance care.</p>
+    </div>
+  </div>
+  <div class="gallery-rows">
+    <div class="gallery-wrap">
+      <div class="gallery-track">
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?q=75&w=700&auto=format&fit=crop" alt="Manual Therapy"><div class="overlay"></div><div class="content"><div class="gic">🖐️</div><h4>Manual Therapy</h4><p>Hands-on techniques to restore joint and soft-tissue mobility</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1708686816818-2b018e0c1296?q=75&w=700&auto=format&fit=crop" alt="Pediatric Therapy"><div class="overlay"></div><div class="content"><div class="gic">🧒</div><h4>Pediatric Therapy</h4><p>Specialized care to support kids' movement and development</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1702648158754-484755fadf79?q=75&w=700&auto=format&fit=crop" alt="Vestibular Therapy"><div class="overlay"></div><div class="content"><div class="gic">🧭</div><h4>Vestibular Therapy</h4><p>Balance and dizziness rehabilitation for neurological conditions</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1745267652572-573ae6e81e40?q=75&w=700&auto=format&fit=crop" alt="Return to Work Therapy"><div class="overlay"></div><div class="content"><div class="gic">💼</div><h4>Return to Work Therapy</h4><p>Functional rehab to get you back on the job, safely</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1617085606193-6b17105cff2a?q=75&w=700&auto=format&fit=crop" alt="Sports Therapy"><div class="overlay"></div><div class="content"><div class="gic">🏃</div><h4>Sports Therapy</h4><p>Injury recovery and performance care for every level of athlete</p></div></a>
+        <!-- duplicated for seamless loop -->
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1649751361457-01d3a696c7e6?q=75&w=700&auto=format&fit=crop" alt="Manual Therapy"><div class="overlay"></div><div class="content"><div class="gic">🖐️</div><h4>Manual Therapy</h4><p>Hands-on techniques to restore joint and soft-tissue mobility</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1708686816818-2b018e0c1296?q=75&w=700&auto=format&fit=crop" alt="Pediatric Therapy"><div class="overlay"></div><div class="content"><div class="gic">🧒</div><h4>Pediatric Therapy</h4><p>Specialized care to support kids' movement and development</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1702648158754-484755fadf79?q=75&w=700&auto=format&fit=crop" alt="Vestibular Therapy"><div class="overlay"></div><div class="content"><div class="gic">🧭</div><h4>Vestibular Therapy</h4><p>Balance and dizziness rehabilitation for neurological conditions</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1745267652572-573ae6e81e40?q=75&w=700&auto=format&fit=crop" alt="Return to Work Therapy"><div class="overlay"></div><div class="content"><div class="gic">💼</div><h4>Return to Work Therapy</h4><p>Functional rehab to get you back on the job, safely</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1617085606193-6b17105cff2a?q=75&w=700&auto=format&fit=crop" alt="Sports Therapy"><div class="overlay"></div><div class="content"><div class="gic">🏃</div><h4>Sports Therapy</h4><p>Injury recovery and performance care for every level of athlete</p></div></a>
+      </div>
+    </div>
+    <div class="gallery-wrap">
+      <div class="gallery-track reverse">
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1700760933574-9f0f4ea9aa3b?q=75&w=700&auto=format&fit=crop" alt="Laser Therapy"><div class="overlay"></div><div class="content"><div class="gic">⚡</div><h4>Laser Therapy</h4><p>Low-level laser treatment to reduce pain and inflammation</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1598555763574-dca77e10427e?q=75&w=700&auto=format&fit=crop" alt="Dry Needling"><div class="overlay"></div><div class="content"><div class="gic">🪡</div><h4>Dry Needling</h4><p>Targeted trigger-point release for muscle pain</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=75&w=700&auto=format&fit=crop" alt="Golf Performance Assessment"><div class="overlay"></div><div class="content"><div class="gic">⛳</div><h4>Golf Assessment</h4><p>Titleist Performance Institute swing &amp; mobility screening</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1571019613914-85f342c6a11e?q=75&w=700&auto=format&fit=crop" alt="Barbell Rehab"><div class="overlay"></div><div class="content"><div class="gic">🏋️</div><h4>Barbell Rehab</h4><p>Strength-based rehab for lifters getting back under the bar</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1528656707959-c9dc050e4841?q=75&w=700&auto=format&fit=crop" alt="Kinesio Taping"><div class="overlay"></div><div class="content"><div class="gic">🩹</div><h4>Kinesio Taping</h4><p>Supportive taping for active recovery and movement</p></div></a>
+        <!-- duplicated for seamless loop -->
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1700760933574-9f0f4ea9aa3b?q=75&w=700&auto=format&fit=crop" alt="Laser Therapy"><div class="overlay"></div><div class="content"><div class="gic">⚡</div><h4>Laser Therapy</h4><p>Low-level laser treatment to reduce pain and inflammation</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1598555763574-dca77e10427e?q=75&w=700&auto=format&fit=crop" alt="Dry Needling"><div class="overlay"></div><div class="content"><div class="gic">🪡</div><h4>Dry Needling</h4><p>Targeted trigger-point release for muscle pain</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=75&w=700&auto=format&fit=crop" alt="Golf Performance Assessment"><div class="overlay"></div><div class="content"><div class="gic">⛳</div><h4>Golf Assessment</h4><p>Titleist Performance Institute swing &amp; mobility screening</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1571019613914-85f342c6a11e?q=75&w=700&auto=format&fit=crop" alt="Barbell Rehab"><div class="overlay"></div><div class="content"><div class="gic">🏋️</div><h4>Barbell Rehab</h4><p>Strength-based rehab for lifters getting back under the bar</p></div></a>
+        <a class="gallery-card" href="tel:+18172880121"><img src="https://images.unsplash.com/photo-1528656707959-c9dc050e4841?q=75&w=700&auto=format&fit=crop" alt="Kinesio Taping"><div class="overlay"></div><div class="content"><div class="gic">🩹</div><h4>Kinesio Taping</h4><p>Supportive taping for active recovery and movement</p></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits" id="why-rts">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why RTS Physical Therapy</span>
+      <h2>Clinical expertise, close to home</h2>
+      <p>Backed by a 7-clinic North Texas network, with the personal attention of a neighborhood practice.</p>
+    </div>
+    <div class="benefits-grid reveal-stagger">
+      <div class="benefit"><div class="ic">①</div><div><h4>Doctors of Physical Therapy</h4><p>Every therapist holds a Doctorate of Physical Therapy (DPT), trained in musculoskeletal and neuromuscular care.</p></div></div>
+      <div class="benefit"><div class="ic">②</div><div><h4>23 Years in North Texas</h4><p>Serving the community since 2003 — decades of hands-on clinical experience.</p></div></div>
+      <div class="benefit"><div class="ic">③</div><div><h4>5.0★ on Google</h4><p>245 reviews from real patients at the Bedford clinic.</p></div></div>
+      <div class="benefit"><div class="ic">④</div><div><h4>Personalized Care</h4><p>Evidence-based treatment plans built around your recovery, not a quota.</p></div></div>
+      <div class="benefit"><div class="ic">⑤</div><div><h4>Sports Medicine Focus</h4><p>Specialized programs for athletes, weightlifters, golfers, and working professionals.</p></div></div>
+      <div class="benefit"><div class="ic">⑥</div><div><h4>7-Clinic Network</h4><p>Backed by RTS clinics across North Texas, so your care can follow you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="proof reveal">
+    <div class="proof-left">
+      <h3>Real ratings, straight from Google</h3>
+      <p>The score real patients gave the Bedford clinic.</p>
+    </div>
+    <div class="proof-score">
+      <div>
+        <div class="num">5.0</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div>
+        <b style="font-size:19px;font-weight:700;">245 reviews</b>
+        <small>Google · RTS Physical Therapy of Bedford</small><br>
+        <a href="https://www.google.com/maps/place/RTS+Physical+Therapy+of+Bedford/@32.8448316,-97.102084,17z" target="_blank" style="color:#fff;text-decoration:underline;font-size:13px;">See reviews on Google →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="get-started">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get Started</span>
+      <h2>What to know before your first visit</h2>
+      <p>Getting into care at RTS Bedford is straightforward — here's how it works.</p>
+    </div>
+    <div class="pay-grid reveal-stagger">
+      <div class="pay-card"><div class="ic">🔓</div><h4>Direct Access</h4><p>Under Texas law, you can see a Doctor of Physical Therapy for up to 30 days without a physician referral.</p></div>
+      <div class="pay-card"><div class="ic">📄</div><h4>Have a Prescription?</h4><p>Bring a diagnosis, an "Evaluate and Treat" order, and your physician's signature and date.</p></div>
+      <div class="pay-card"><div class="ic">🏥</div><h4>Insurance &amp; Medicare</h4><p>We coordinate with Medicare and most major insurance plans — call Bedford to verify your benefits first.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about reveal-stagger">
+    <div class="about-media">
+      <img src="https://rtstherapy.com/wp-content/uploads/2026/02/rts-syril-john-scaled.jpg" alt="Syril John, DPT — Bedford Clinic Director">
+      <div class="about-name-tag">
+        <b>Syril John, DPT</b>
+        <small>Bedford Clinic Director</small>
+      </div>
+      <div class="about-badge">
+        <div class="stars">★★★★★</div>
+        <div>
+          <b>5.0 on Google</b>
+          <small>245 reviews · Bedford, TX</small>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">About the Bedford Clinic</span>
+      <h2 style="font-size:32px;color:var(--ink);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;">Part of a 23-year North Texas practice</h2>
+      <p style="color:var(--gray-600);margin-top:14px;">RTS was founded in 2003 with one purpose: to provide the best in clinical services with an emphasis on a strong client-therapist relationship. Our mission is to deliver outstanding, personalized, evidence-based physical therapy that helps patients regain strength, mobility, and independence. The Bedford clinic is led by Syril John, DPT.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span><span><b>Doctorate-level therapists</b> treating musculoskeletal and neuromuscular diagnoses.</span></li>
+        <li><span class="check">✓</span><span><b>One-on-one sessions</b> built around your specific diagnosis and goals.</span></li>
+        <li><span class="check">✓</span><span><b>Part of the RTS network</b>, with 7 clinics serving North Texas.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="team" style="background:var(--surface-alt);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2>Leadership &amp; Care Team</h2>
+      <p>Part of the RTS network leading over two decades of physical therapy care across North Texas — every therapist holds a Doctorate of Physical Therapy.</p>
+    </div>
+    <div class="team-grid reveal-stagger">
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2025/08/LKS-RTS-2025-0526-matt-scaled.jpg" alt="Matthew Taylor, DPT">
+        <h4>Matthew Taylor, DPT</h4>
+        <p>President</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2025/08/LKS-RTS-2025-0512-tina-scaled.jpg" alt="Tina Neuwirth, DPT">
+        <h4>Tina Neuwirth, DPT</h4>
+        <p>Vice President · Orthopedic Specialist</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2026/02/rts-emily-covington-scaled.jpg" alt="Emily Covington, DPT">
+        <h4>Emily Covington, DPT</h4>
+        <p>Doctor of Physical Therapy</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2026/02/rts-tylar-lanning-scaled.jpg" alt="Tylar Lanning, DPT">
+        <h4>Tylar Lanning, DPT</h4>
+        <p>Doctor of Physical Therapy</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2026/09/Patricio-RTS-2026-2647-RESIZED.png" alt="Patricio Elias, DPT">
+        <h4>Patricio Elias, DPT</h4>
+        <p>Doctor of Physical Therapy</p>
+      </div>
+      <div class="team-card">
+        <img src="https://rtstherapy.com/wp-content/uploads/2025/09/LKS-RTS-2025-0964-vanessa-scaled.jpg" alt="Vanessa Simpson, DPT">
+        <h4>Vanessa Simpson, DPT</h4>
+        <p>Doctor of Physical Therapy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Visit the Bedford Clinic</h2>
+    </div>
+    <div class="contact-grid reveal-stagger">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div><h5>Address</h5><p>4153 Bedford Rd #200, Bedford, TX 76021</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📞</div>
+          <div><h5>Phone</h5><p>(817) 288-0121</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">🕐</div>
+          <div><h5>Hours</h5><p>Mon/Wed 7–12, 1:30–6:30 · Tue/Thu 7–12 · Fri 7–12, 1:30–5:30 · Sat–Sun Closed</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">⭐</div>
+          <div><h5>Google Rating</h5><p>5.0 of 5 (245 reviews)</p></div>
+        </div>
+        <a class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" href="tel:+18172880121">Call to Schedule</a>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=4153+Bedford+Rd+%23200,+Bedford,+TX+76021&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-banner reveal">
+    <h2>Ready to recover like an athlete?</h2>
+    <p>Schedule your evaluation with the RTS Physical Therapy team in Bedford and start your personalized recovery plan.</p>
+    <a class="btn btn-outline-light" href="tel:+18172880121">📞 Call (817) 288-0121</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="foot-logo"><span class="dot" style="width:9px;height:9px;background:var(--brand-400);border-radius:50%;display:inline-block;"></span>RTS Physical Therapy of Bedford</div>
+      <p style="max-width:320px;font-size:13.5px;">Orthopedic and sports medicine physical therapy, part of the RTS Physical Therapy network serving North Texas since 2003.</p>
+    </div>
+    <div>
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-rts">Why RTS</a></li>
+        <li><a href="#get-started">Get Started</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li>4153 Bedford Rd #200, Bedford, TX 76021</li>
+        <li>(817) 288-0121</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2026 RTS Physical Therapy of Bedford. All rights reserved.</span>
+    <a class="foot-signature" href="https://www.instagram.com/disruptivofoto/" target="_blank">Developed by <b>DISRUPTIVO</b></a>
+  </div>
+</footer>
+
+<a class="phone-float" href="tel:+18172880121">📞<span class="ping"></span></a>
+
+<script>
+(function(){
+  var scheduleBtn = document.getElementById('scheduleBtn');
+  if (scheduleBtn) {
+    scheduleBtn.addEventListener('click', function(){
+      var treatment = document.getElementById('fieldTreatment').value;
+      var label = 'Call Now';
+      if (treatment) label = 'Call about ' + treatment;
+      scheduleBtn.textContent = label + ' →';
+    });
+  }
+
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
