@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marizete Barbosa | Psicanalista Clínica em Guriri — Acolhimento e Autoconhecimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{
+    --brand-900:#20302A;
+    --brand-800:#2B4138;
+    --brand-700:#3A5A4C;
+    --brand-600:#4E7763;
+    --brand-500:#6B9680;
+    --brand-400:#93B9A5;
+    --brand-100:#E7EFE9;
+    --brand-50:#F7F2EA;
+    --ink:#2B241F;
+    --gray-600:#6E6459;
+    --gray-400:#A69C8E;
+    --white:#FFFFFF;
+    --accent:#B5583C;
+    --accent-dark:#92432B;
+    --shadow: 0 10px 30px rgba(32,48,42,0.10);
+    --radius: 16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Work Sans',sans-serif;color:var(--ink);background:var(--brand-50);line-height:1.6;}
+  h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:999px;font-weight:600;font-size:14.5px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;font-family:'Work Sans',sans-serif;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(181,88,60,.35);}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-outline{background:#fff;color:var(--brand-700);border-color:var(--brand-100);}
+  .btn-outline:hover{border-color:var(--brand-400);}
+  .btn-ghost-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);}
+  .btn-link{font-weight:600;font-size:14.5px;color:var(--brand-700);align-self:center;white-space:nowrap;}
+
+  /* Utility bar */
+  .utility-bar{background:linear-gradient(90deg,var(--brand-900),var(--brand-800));color:#CBDCD3;font-size:12.5px;}
+  .utility-bar .container{display:flex;align-items:center;justify-content:space-between;padding:9px 24px;flex-wrap:wrap;gap:8px;}
+  .utility-links{display:flex;align-items:center;gap:22px;}
+  .utility-links a{opacity:.9;transition:opacity .15s;}
+  .utility-links a:hover{opacity:1;}
+  @media(max-width:760px){.utility-links span:not(:first-child){display:none;}}
+
+  /* Header / main nav */
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,var(--brand-700),var(--brand-500));transition:box-shadow .3s ease;}
+  header.scrolled{box-shadow:0 10px 26px rgba(32,48,42,.2);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;color:#fff;}
+  .logo .dot{width:11px;height:11px;background:var(--accent);border-radius:50%;display:inline-block;}
+  .logo span.light{font-weight:500;font-style:italic;color:rgba(255,255,255,.8);}
+  .nav-links{display:flex;gap:30px;font-size:14.5px;font-weight:500;color:#fff;}
+  .nav-links a{opacity:.85;transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .nav-search{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;transition:background .2s;flex:none;}
+  .nav-search:hover{background:rgba(255,255,255,.28);}
+  .btn-on-green{background:#fff;color:var(--brand-700);}
+  .btn-on-green:hover{background:var(--brand-50);}
+  @media(max-width:860px){.nav-links{display:none;}}
+
+  /* Hero — ASYMMETRIC_EDITORIAL */
+  .hero{position:relative;min-height:94vh;padding:0;overflow:hidden;background:linear-gradient(180deg,var(--brand-50),var(--brand-100));}
+  .hero__art{position:absolute;top:0;right:0;width:56%;height:100%;z-index:1;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);}
+  .hero__art img{width:100%;height:100%;object-fit:cover;object-position:68% 20%;display:block;}
+  .hero__art::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg, rgba(32,48,42,.55) 0%, rgba(32,48,42,.18) 45%, rgba(32,48,42,0) 72%);}
+  .hero__content{position:relative;z-index:2;max-width:540px;padding:16vh 64px 64px;display:flex;flex-direction:column;gap:22px;}
+  .hero__badge-top{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--brand-900);color:#fff;font-weight:600;font-size:12.5px;padding:8px 16px;border-radius:999px;}
+  .hero__badge-top .blip{width:7px;height:7px;background:var(--accent);border-radius:50%;}
+  .hero__title{font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:500;line-height:1.12;color:var(--brand-900);max-width:11ch;}
+  .hero__title em{font-style:italic;font-weight:600;color:var(--accent);}
+  .hero__lead{font-size:17px;color:var(--gray-600);max-width:40ch;}
+  .hero__cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+  .hero__badge{position:absolute;z-index:3;bottom:46px;right:64px;background:var(--brand-50);border:1.5px solid var(--accent);border-radius:14px;padding:14px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;}
+  .hero__badge strong{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--brand-900);}
+  .hero__badge span{font-size:11.5px;color:var(--gray-600);}
+  @media(max-width:860px){
+    .hero{display:flex;flex-direction:column;min-height:auto;}
+    .hero__art{position:static;width:100%;height:340px;clip-path:none;order:1;}
+    .hero__content{position:static;order:2;padding:36px 24px 28px;max-width:100%;}
+    .hero__badge{position:static;order:3;margin:0 24px 28px;align-self:flex-start;}
+  }
+
+  /* Talk card (scheduling, own section) */
+  .talk{padding-top:0;margin-top:-48px;position:relative;z-index:6;}
+  @media(max-width:860px){.talk{margin-top:0;}}
+  .talk-card{background:#fff;border-radius:22px;box-shadow:0 26px 60px rgba(32,48,42,.16);padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;}
+  @media(max-width:860px){.talk-card{grid-template-columns:1fr;padding:28px 24px;}}
+  .talk-copy h3{font-size:21px;color:var(--brand-900);font-weight:600;margin-bottom:6px;}
+  .talk-copy p{font-size:14px;color:var(--gray-600);max-width:38ch;}
+  .talk-fields{display:flex;flex-wrap:wrap;gap:14px;align-items:end;}
+  .field label{display:block;font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:6px;}
+  .field select{min-width:190px;padding:12px 14px;border-radius:10px;border:1.5px solid #E7DFD4;font-size:13.5px;color:var(--ink);background:#fff;font-family:'Work Sans',sans-serif;}
+  .field select:focus{outline:none;border-color:var(--accent);}
+  #talkBtn{white-space:nowrap;}
+  .talk-hint{display:block;margin-top:14px;font-size:12.5px;color:var(--brand-700);font-weight:600;min-height:16px;}
+
+  /* Quick actions — connected step flow */
+  .quick{margin-top:72px;position:relative;z-index:5;background:radial-gradient(65% 100% at 50% 0%, var(--brand-100), transparent 75%);padding-top:8px;padding-bottom:8px;}
+  .quick-eyebrow{text-align:center;color:var(--brand-600);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px;}
+  .quick-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:860px){.quick-grid{grid-template-columns:repeat(2,1fr);}}
+  .quick-connector{position:absolute;left:8%;right:8%;top:46px;height:0;border-top:2px dashed var(--brand-400);opacity:.45;z-index:0;}
+  .quick-connector .node{position:absolute;top:0;width:9px;height:9px;border-radius:50%;background:var(--brand-400);transform:translate(-50%,-50%);box-shadow:0 0 0 5px var(--brand-50);}
+  @media(max-width:860px){.quick-connector{display:none;}}
+  .quick-card{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--brand-900),var(--brand-800));border-radius:18px;padding:24px;color:#fff;box-shadow:0 14px 30px rgba(32,48,42,.18);transition:transform .3s ease, box-shadow .3s ease;z-index:1;}
+  .quick-card::after{content:"";position:absolute;top:-45%;right:-25%;width:150px;height:150px;background:radial-gradient(circle, rgba(147,185,165,.4), transparent 70%);pointer-events:none;}
+  .quick-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(32,48,42,.3);}
+  .quick-card .step{position:absolute;top:16px;right:18px;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.32);letter-spacing:1px;z-index:1;}
+  .quick-card .ic{position:relative;z-index:1;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--brand-500),var(--brand-400));display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:19px;box-shadow:0 8px 18px rgba(107,150,128,.45);}
+  .quick-card h4{position:relative;z-index:1;font-family:'Work Sans',sans-serif;font-weight:600;font-size:15.5px;margin-bottom:4px;}
+  .quick-card p{position:relative;z-index:1;font-size:12.5px;color:#CFE0D8;}
+
+  section{padding:88px 0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .eyebrow{color:var(--brand-600);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;display:block;}
+  .section-head h2{font-size:34px;color:var(--brand-900);font-weight:600;}
+  .section-head p{color:var(--gray-600);margin-top:12px;font-size:16px;}
+
+  /* Benefits */
+  .benefits{background:var(--brand-100);}
+  .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:760px){.benefits-grid{grid-template-columns:1fr;}}
+  .benefit{display:flex;gap:16px;background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 26px rgba(32,48,42,.06);transition:transform .3s ease, box-shadow .3s ease;}
+  .benefit:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(32,48,42,.14);}
+  .benefit .ic{position:relative;z-index:1;flex:none;width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--brand-500),var(--brand-400));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:0 8px 18px rgba(107,150,128,.35);}
+  .benefit h4{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16px;margin-bottom:6px;color:var(--brand-900);}
+  .benefit p{font-size:13.5px;color:var(--gray-600);}
+
+  /* Social proof (Instagram, não nota do Google) */
+  .proof{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--brand-900),var(--brand-800));color:#fff;border-radius:28px;margin:0 24px;padding:56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .proof::after{content:"";position:absolute;top:-35%;right:-8%;width:320px;height:320px;background:radial-gradient(circle, rgba(147,185,165,.3), transparent 70%);pointer-events:none;}
+  .proof-left, .proof-score{position:relative;z-index:1;}
+  .proof-left h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;margin-bottom:10px;}
+  .proof-left p{color:#CBDCD3;max-width:420px;}
+  .proof-score{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.1);padding:22px 30px;border-radius:18px;}
+  .proof-score .num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;}
+  .proof-score .verified{color:var(--brand-400);font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .proof-score small{color:#CBDCD3;font-size:12.5px;}
+
+  /* About */
+  .about{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.about{grid-template-columns:1fr;}}
+  .about-media{position:relative;}
+  .about-media img{border-radius:22px;box-shadow:var(--shadow);height:440px;width:100%;object-fit:cover;}
+  .about-badge{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 14px 30px rgba(32,48,42,.2);display:flex;align-items:center;gap:12px;}
+  .about-badge .lotus{font-size:20px;}
+  .about-badge b{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--brand-900);display:block;}
+  .about-badge small{color:var(--gray-600);font-size:11.5px;}
+  .about-list{margin-top:22px;display:flex;flex-direction:column;gap:14px;}
+  .about-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--gray-600);}
+  .about-list b{color:var(--ink);}
+  .check{flex:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--brand-500),var(--brand-400));color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;box-shadow:0 6px 14px rgba(107,150,128,.35);}
+
+  /* Contact */
+  .contact{background:var(--brand-100);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{background:#fff;border-radius:20px;padding:36px;box-shadow:var(--shadow);}
+  .contact-item{display:flex;gap:14px;margin-bottom:22px;}
+  .contact-item .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--brand-100);color:var(--brand-700);display:flex;align-items:center;justify-content:center;}
+  .contact-item h5{font-size:14px;color:var(--gray-600);margin-bottom:2px;font-weight:500;}
+  .contact-item p{font-weight:600;font-size:15px;}
+  .contact-visual{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);min-height:340px;}
+  .contact-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .contact-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg, var(--brand-900) 0%, rgba(32,48,42,.55) 40%, rgba(32,48,42,.05) 70%);}
+  .contact-visual__content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;color:#fff;}
+  .contact-visual__content p{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;margin-bottom:10px;max-width:22ch;}
+  .contact-visual__content a{font-weight:600;font-size:13.5px;text-decoration:underline;}
+
+  /* CTA banner */
+  .cta-banner{background:linear-gradient(120deg,var(--brand-600),var(--brand-800));color:#fff;text-align:center;border-radius:28px;margin:0 24px;padding:64px 24px;}
+  .cta-banner h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:32px;margin-bottom:14px;}
+  .cta-banner p{color:#DCEBE4;max-width:520px;margin:0 auto 28px;}
+
+  footer{background:var(--brand-900);color:#BCD1C7;padding:56px 0 24px;margin-top:88px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr;}}
+  footer h5{color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;margin-bottom:16px;}
+  footer li{margin-bottom:10px;font-size:14px;}
+  footer .foot-logo{display:flex;align-items:center;gap:8px;color:#fff;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;margin-bottom:12px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#93A89D;}
+
+  .insta-float{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#F58529,#DD2A7B 55%,#8134AF);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:60;font-size:26px;transition:transform .4s ease;}
+  .insta-float:hover{transform:scale(1.1) rotate(6deg);}
+  .insta-float .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:2px solid #fff;animation:pulseDot 2s ease-in-out infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(1.2);}}
+
+  /* Scroll reveal (progressive enhancement) */
+  .reveal, .reveal-stagger > *{opacity:1;transform:none;}
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.04s;}
+  .js .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.09s;}
+  .js .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.14s;}
+  .js .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.19s;}
+  .js .reveal-stagger.is-visible > *:nth-child(5){transition-delay:.24s;}
+  .js .reveal-stagger.is-visible > *:nth-child(6){transition-delay:.29s;}
+  .js .reveal-stagger.is-visible > *:nth-child(7){transition-delay:.34s;}
+  .js .reveal-stagger.is-visible > *:nth-child(8){transition-delay:.39s;}
+  .js .reveal-stagger.is-visible > *:nth-child(9){transition-delay:.44s;}
+  .js .reveal-stagger.is-visible > *:nth-child(10){transition-delay:.49s;}
+  .js .reveal-stagger.is-visible > *:nth-child(11){transition-delay:.54s;}
+  .js .reveal-stagger.is-visible > *:nth-child(12){transition-delay:.59s;}
+
+  /* Border-run: rotating gradient border on hover */
+  @property --angle{syntax:'<angle>';inherits:false;initial-value:0deg;}
+  .border-run{position:relative;isolation:isolate;}
+  .border-run::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;
+    background:conic-gradient(from var(--angle), transparent 0deg, var(--brand-500) 60deg, var(--brand-400) 140deg, transparent 200deg, transparent 360deg);
+    -webkit-mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation:borderRun 6s linear infinite;opacity:0;transition:opacity .3s;pointer-events:none;z-index:2;}
+  .border-run:hover::before{opacity:1;animation-duration:2.2s;}
+  @keyframes borderRun{100%{--angle:360deg;}}
+
+  /* Gallery scroller: two rows, opposite directions, pause on hover */
+  .gallery-rows{display:flex;flex-direction:column;gap:22px;padding:12px 0 8px;}
+  .gallery-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+  .gallery-track{display:flex;width:max-content;gap:22px;animation:galleryLeft 50s linear infinite;}
+  .gallery-track.reverse{animation-name:galleryRight;}
+  .gallery-wrap:hover .gallery-track{animation-play-state:paused;}
+  @keyframes galleryLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  @keyframes galleryRight{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+  .gallery-card{position:relative;width:280px;height:320px;flex-shrink:0;border-radius:22px;overflow:hidden;display:block;box-shadow:0 8px 20px rgba(32,48,42,.10);transition:transform .5s ease, box-shadow .5s ease;}
+  .gallery-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(32,48,42,.22);}
+  .gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+  .gallery-card:hover img{transform:scale(1.1);}
+  .gallery-card .overlay{position:absolute;inset:0;background:linear-gradient(0deg, var(--brand-900) 0%, rgba(32,48,42,.6) 42%, rgba(32,48,42,.05) 75%);}
+  .gallery-card .content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;}
+  .gallery-card .gic{width:42px;height:42px;border-radius:12px;background:var(--brand-500);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px;}
+  .gallery-card h4{font-family:'Work Sans',sans-serif;font-weight:600;font-size:16.5px;margin-bottom:4px;}
+  .gallery-card p{font-size:12.5px;color:#DCEBE4;}
+  @media(max-width:600px){.gallery-card{width:230px;height:280px;}}
+
+  @media (prefers-reduced-motion: reduce){
+    .gallery-track{animation:none;}
+    .border-run::before{animation:none;}
+    .js .reveal, .js .reveal-stagger > *{transition:none;opacity:1;transform:none;}
+    .insta-float .ping{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-links">
+      <span>Guriri · São Mateus, ES</span>
+      <span>Psicanalista Clínica · CBPC 2022-6635</span>
+    </div>
+    <div class="utility-links">
+      <a href="https://instagram.com/marizetepsicanalista" target="_blank">📷 @marizetepsicanalista no Instagram</a>
+    </div>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <div class="nav">
+    <div class="logo"><span class="dot"></span>Marizete <span class="light">psicanalista</span></div>
+    <nav class="nav-links">
+      <a href="#temas">Temas</a>
+      <a href="#porque">Por que a Marizete</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-search" href="#conversar" title="Vamos conversar">🔍</a>
+      <a class="btn btn-on-green" href="https://instagram.com/marizetepsicanalista" target="_blank">Fale no Instagram</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero__art">
+    <img src="https://images.unsplash.com/photo-1745450057740-d3019061746e?q=80&w=1600&auto=format&fit=crop" alt="Mulher sentada junto à janela, em momento de reflexão">
+  </div>
+  <div class="hero__content">
+    <span class="hero__badge-top reveal"><span class="blip"></span> Guriri, São Mateus – ES</span>
+    <h1 class="hero__title reveal">Um espaço de <em>escuta</em> para você se encontrar</h1>
+    <p class="hero__lead reveal">Psicanálise clínica com acolhimento, sem pressa e sem julgamento.</p>
+    <div class="hero__cta reveal">
+      <a class="btn btn-primary" href="https://instagram.com/marizetepsicanalista" target="_blank">Fale no Instagram</a>
+      <a class="btn-link" href="#temas">Conhecer os temas ↓</a>
+    </div>
+  </div>
+  <div class="hero__badge reveal">
+    <strong>CBPC 2022-6635</strong>
+    <span>Psicanalista Clínica</span>
+  </div>
+</section>
+
+<div class="container talk" id="conversar">
+  <div class="talk-card reveal">
+    <div class="talk-copy">
+      <h3>Sobre o que você quer conversar?</h3>
+      <p>Escolha um tema e um período — a gente prepara a mensagem, você só confirma no Instagram.</p>
+    </div>
+    <div class="talk-fields">
+      <div class="field">
+        <label for="fieldTheme">Quero falar sobre</label>
+        <select id="fieldTheme">
+          <option value="">Só quero conversar</option>
+          <option>Ansiedade</option>
+          <option>Burnout</option>
+          <option>Autoconhecimento</option>
+          <option>Vínculos afetivos</option>
+          <option>Universo feminino</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fieldPeriod">Prefiro ser atendida</label>
+        <select id="fieldPeriod">
+          <option value="">Sem preferência</option>
+          <option>Manhã</option>
+          <option>Tarde</option>
+          <option>Noite</option>
+        </select>
+      </div>
+      <button type="button" id="talkBtn" class="btn btn-primary">Copiar mensagem e abrir Instagram →</button>
+    </div>
+    <span class="talk-hint" id="talkHint" aria-live="polite"></span>
+  </div>
+</div>
+
+<div class="container quick">
+  <div class="quick-eyebrow reveal">Como funciona o primeiro contato</div>
+  <div class="quick-grid reveal-stagger">
+    <div class="quick-connector">
+      <span class="node" style="left:12.5%"></span>
+      <span class="node" style="left:37.5%"></span>
+      <span class="node" style="left:62.5%"></span>
+      <span class="node" style="left:87.5%"></span>
+    </div>
+    <a class="quick-card border-run" href="https://instagram.com/marizetepsicanalista" target="_blank">
+      <span class="step">01</span>
+      <div class="ic">📩</div>
+      <h4>Entre em contato</h4>
+      <p>Chame no Instagram e conte o que te trouxe até aqui</p>
+    </a>
+    <a class="quick-card border-run" href="#temas">
+      <span class="step">02</span>
+      <div class="ic">🗣️</div>
+      <h4>Temas que acolho</h4>
+      <p>Ansiedade, burnout, vínculos e autoconhecimento</p>
+    </a>
+    <a class="quick-card border-run" href="#conversar">
+      <span class="step">03</span>
+      <div class="ic">🛋️</div>
+      <h4>Primeira conversa</h4>
+      <p>Sem pressa, sem julgamento</p>
+    </a>
+    <a class="quick-card border-run" href="#contato">
+      <span class="step">04</span>
+      <div class="ic">🌱</div>
+      <h4>Guriri, ES</h4>
+      <p>Atendimento local e próximo</p>
+    </a>
+  </div>
+</div>
+
+<section id="temas" style="padding-bottom:56px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Temas de trabalho</span>
+      <h2>O que pode te trazer até a psicanálise</h2>
+      <p>Questões reais que atravessam a vida adulta — trabalhadas com escuta e tempo.</p>
+    </div>
+  </div>
+  <div class="gallery-rows">
+    <div class="gallery-wrap">
+      <div class="gallery-track">
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1707161256359-0919306e0d3c?q=75&w=700&auto=format&fit=crop" alt="Ansiedade"><div class="overlay"></div><div class="content"><div class="gic">💭</div><h4>Ansiedade</h4><p>Entender a raiz do que tira você do presente</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1758876022104-368b0f3fb6c9?q=75&w=700&auto=format&fit=crop" alt="Burnout"><div class="overlay"></div><div class="content"><div class="gic">🕯️</div><h4>Burnout</h4><p>Reconhecer os limites antes que o corpo cobre a conta</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1579017308347-e53e0d2fc5e9?q=75&w=700&auto=format&fit=crop" alt="Autoconhecimento"><div class="overlay"></div><div class="content"><div class="gic">🪞</div><h4>Autoconhecimento</h4><p>Escutar a própria história com outros olhos</p></div></a>
+        <!-- duplicado p/ loop contínuo -->
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1707161256359-0919306e0d3c?q=75&w=700&auto=format&fit=crop" alt="Ansiedade"><div class="overlay"></div><div class="content"><div class="gic">💭</div><h4>Ansiedade</h4><p>Entender a raiz do que tira você do presente</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1758876022104-368b0f3fb6c9?q=75&w=700&auto=format&fit=crop" alt="Burnout"><div class="overlay"></div><div class="content"><div class="gic">🕯️</div><h4>Burnout</h4><p>Reconhecer os limites antes que o corpo cobre a conta</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1579017308347-e53e0d2fc5e9?q=75&w=700&auto=format&fit=crop" alt="Autoconhecimento"><div class="overlay"></div><div class="content"><div class="gic">🪞</div><h4>Autoconhecimento</h4><p>Escutar a própria história com outros olhos</p></div></a>
+      </div>
+    </div>
+    <div class="gallery-wrap">
+      <div class="gallery-track reverse">
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1759593047536-5258c3c6a527?q=75&w=700&auto=format&fit=crop" alt="Vínculos afetivos"><div class="overlay"></div><div class="content"><div class="gic">🤍</div><h4>Vínculos Afetivos</h4><p>A importância dos laços que você constrói</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1771627278473-fbe123ee865a?q=75&w=700&auto=format&fit=crop" alt="Escuta acolhedora"><div class="overlay"></div><div class="content"><div class="gic">🫶</div><h4>Escuta Acolhedora</h4><p>Um espaço sem pressa e sem julgamento</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1745450057740-d3019061746e?q=75&w=700&auto=format&fit=crop" alt="Universo feminino"><div class="overlay"></div><div class="content"><div class="gic">🌸</div><h4>Universo Feminino</h4><p>Questões próprias da experiência de ser mulher</p></div></a>
+        <!-- duplicado p/ loop contínuo -->
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1759593047536-5258c3c6a527?q=75&w=700&auto=format&fit=crop" alt="Vínculos afetivos"><div class="overlay"></div><div class="content"><div class="gic">🤍</div><h4>Vínculos Afetivos</h4><p>A importância dos laços que você constrói</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1771627278473-fbe123ee865a?q=75&w=700&auto=format&fit=crop" alt="Escuta acolhedora"><div class="overlay"></div><div class="content"><div class="gic">🫶</div><h4>Escuta Acolhedora</h4><p>Um espaço sem pressa e sem julgamento</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://instagram.com/marizetepsicanalista"><img src="https://images.unsplash.com/photo-1745450057740-d3019061746e?q=75&w=700&auto=format&fit=crop" alt="Universo feminino"><div class="overlay"></div><div class="content"><div class="gic">🌸</div><h4>Universo Feminino</h4><p>Questões próprias da experiência de ser mulher</p></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits" id="porque">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por que a Marizete</span>
+      <h2>Um processo com cuidado real</h2>
+      <p>Psicanálise não é fórmula pronta — é escuta construída com ética e consistência.</p>
+    </div>
+    <div class="benefits-grid reveal-stagger">
+      <div class="benefit border-run"><div class="ic">①</div><div><h4>Escuta acolhedora</h4><p>Sem julgamentos, no tempo que você precisar para se abrir.</p></div></div>
+      <div class="benefit border-run"><div class="ic">②</div><div><h4>Registro profissional</h4><p>Psicanalista Clínica registrada no CBPC, nº 2022-6635.</p></div></div>
+      <div class="benefit border-run"><div class="ic">③</div><div><h4>Foco em autoconhecimento</h4><p>O trabalho caminha junto com você, não por fórmulas prontas.</p></div></div>
+      <div class="benefit border-run"><div class="ic">④</div><div><h4>Atendimento sem pressa</h4><p>Cada sessão respeita o seu ritmo e a sua história.</p></div></div>
+      <div class="benefit border-run"><div class="ic">⑤</div><div><h4>Sigilo e ética</h4><p>O que é falado em sessão permanece entre vocês duas.</p></div></div>
+      <div class="benefit border-run"><div class="ic">⑥</div><div><h4>Presença em Guriri</h4><p>Atendimento local, perto de quem está em Guriri e região.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="proof reveal">
+    <div class="proof-left">
+      <h3>Presença real, não propaganda</h3>
+      <p>Acompanhe o trabalho da Marizete de perto — conteúdo sobre escuta, autoconhecimento e saúde emocional, publicado direto por ela.</p>
+    </div>
+    <div class="proof-score">
+      <div>
+        <div class="num">✓</div>
+        <div class="verified">Perfil verificado</div>
+      </div>
+      <div>
+        <b style="font-family:'Cormorant Garamond',serif;font-size:19px;">826 seguidores</b>
+        <small>Instagram · @marizetepsicanalista</small><br>
+        <a href="https://instagram.com/marizetepsicanalista" target="_blank" style="color:#fff;text-decoration:underline;font-size:13px;">Ver perfil no Instagram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container about reveal-stagger">
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1758437053633-0cf081264919?q=80&w=1000&auto=format&fit=crop" alt="Espaço de trabalho acolhedor, com plantas e luz natural">
+      <div class="about-badge">
+        <div class="lotus">🪷</div>
+        <div>
+          <b>CBPC 2022-6635</b>
+          <small>Registro profissional ativo</small>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Sobre a Marizete</span>
+      <h2 style="font-size:30px;color:var(--brand-900);font-weight:600;">Uma escuta pensada pra Guriri</h2>
+      <p style="color:var(--gray-600);margin-top:14px;">Marizete Barbosa é psicanalista clínica (CBPC 2022-6635), dedicada a um trabalho de acolhimento e escuta em Guriri. Seu foco está no autoconhecimento e em temas que atravessam a vida adulta — ansiedade, burnout e os vínculos que construímos ao longo da vida.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span><span><b>Psicanalista Clínica</b> registrada no CBPC (2022-6635).</span></li>
+        <li><span class="check">✓</span><span><b>Escuta acolhedora</b>, sem pressa e sem julgamento.</span></li>
+        <li><span class="check">✓</span><span><b>Atenção a temas</b> como ansiedade, burnout e vínculos afetivos.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos conversar sobre o que você está sentindo</h2>
+    </div>
+    <div class="contact-grid reveal-stagger">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="ic">📷</div>
+          <div><h5>Instagram</h5><p>@marizetepsicanalista</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div><h5>Atende em</h5><p>Guriri — São Mateus, ES</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">🪪</div>
+          <div><h5>Registro profissional</h5><p>CBPC 2022-6635</p></div>
+        </div>
+        <a class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" href="https://instagram.com/marizetepsicanalista" target="_blank">Falar no Instagram</a>
+      </div>
+      <div class="contact-visual">
+        <img src="https://images.unsplash.com/photo-1771627278473-fbe123ee865a?q=80&w=1000&auto=format&fit=crop" alt="Ambiente acolhedor com luz natural">
+        <div class="contact-visual__content">
+          <p>Reflexões sobre autoconhecimento, toda semana</p>
+          <a href="https://instagram.com/marizetepsicanalista" target="_blank">Seguir no Instagram →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-banner reveal">
+    <h2>Vamos conversar?</h2>
+    <p>Dê o primeiro passo — mande uma mensagem no Instagram e conte o que você está sentindo.</p>
+    <a class="btn btn-ghost-light" href="https://instagram.com/marizetepsicanalista" target="_blank">📷 Fale no Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="foot-logo"><span class="dot" style="width:10px;height:10px;background:var(--accent);border-radius:50%;display:inline-block;"></span>Marizete Barbosa</div>
+      <p style="max-width:320px;font-size:13.5px;">Psicanalista Clínica em Guriri, com foco em acolhimento, escuta e autoconhecimento.</p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#temas">Temas</a></li>
+        <li><a href="#porque">Por que a Marizete</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contato</h5>
+      <ul>
+        <li>Guriri — São Mateus, ES</li>
+        <li>@marizetepsicanalista no Instagram</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2026 Marizete Barbosa. Todos os direitos reservados. · Psicanalista Clínica · CBPC 2022-6635</span>
+    <a href="https://disruptivo.site" target="_blank" rel="noopener" style="color:#93A89D;">Desenvolvido por <strong style="color:#fff;">Disruptivo</strong></a>
+  </div>
+</footer>
+
+<a class="insta-float" href="https://instagram.com/marizetepsicanalista" target="_blank" aria-label="Falar no Instagram">📷<span class="ping"></span></a>
+
+<script>
+(function(){
+  var talkBtn = document.getElementById('talkBtn');
+  var talkHint = document.getElementById('talkHint');
+  if (talkBtn) {
+    talkBtn.addEventListener('click', function(){
+      var theme = document.getElementById('fieldTheme').value;
+      var period = document.getElementById('fieldPeriod').value;
+      var msg = 'Olá, Marizete! Vim pelo site e gostaria de conversar';
+      if (theme) msg += ' sobre ' + theme.toLowerCase();
+      if (period) msg += ', de preferência no período da ' + period.toLowerCase();
+      msg += '.';
+
+      function openInsta(){ window.open('https://instagram.com/marizetepsicanalista', '_blank'); }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(msg).then(function(){
+          talkHint.textContent = 'Mensagem copiada! Cole na conversa do Instagram.';
+          openInsta();
+        }, function(){
+          talkHint.textContent = 'Envie no Instagram: "' + msg + '"';
+          openInsta();
+        });
+      } else {
+        talkHint.textContent = 'Envie no Instagram: "' + msg + '"';
+        openInsta();
+      }
+    });
+  }
+
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
