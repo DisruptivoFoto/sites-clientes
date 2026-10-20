@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODE DENTISTAS · + Odonto — Dr. Leonardo R. Lima | Jaguaré, ES</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root{
+    --navy-900:#10172C;
+    --navy-800:#161F3D;
+    --navy-700:#1D2B54;
+    --cyan-700:#136C90;
+    --cyan-600:#1690BD;
+    --cyan-500:#1CA7D9;
+    --cyan-400:#52C4EA;
+    --cyan-100:#E7F6FC;
+    --cyan-50:#F4FBFD;
+    --flare:#E0218A;
+    --flare-dark:#A8156A;
+    --ink:#121A2E;
+    --gray-600:#5B6478;
+    --gray-400:#99A1B5;
+    --white:#FFFFFF;
+    --star:#FFB020;
+    --shadow: 0 10px 30px rgba(16,23,46,0.1);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;}
+  h1,h2,h3,.display{font-family:'Poppins',sans-serif;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--cyan-500);color:#fff;box-shadow:0 8px 20px rgba(28,167,217,.4);}
+  .btn-primary:hover{background:var(--cyan-600);}
+  .btn-outline{background:#fff;color:var(--cyan-700);border-color:var(--cyan-100);}
+  .btn-outline:hover{border-color:var(--cyan-400);}
+  .btn-ghost-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.4);}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.2);}
+
+  /* Utility bar */
+  .utility-bar{background:linear-gradient(90deg,var(--navy-900),var(--navy-800));color:#C7D4EA;font-size:12.5px;}
+  .utility-bar .container{display:flex;align-items:center;justify-content:space-between;padding:9px 24px;flex-wrap:wrap;gap:8px;}
+  .utility-links{display:flex;align-items:center;gap:22px;}
+  .utility-links a{opacity:.9;transition:opacity .15s;}
+  .utility-links a:hover{opacity:1;}
+  @media(max-width:760px){.utility-links span:not(:first-child){display:none;}}
+
+  /* Header / main nav */
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,var(--navy-800),var(--navy-700));transition:box-shadow .3s ease;}
+  header.scrolled{box-shadow:0 10px 26px rgba(16,23,46,.3);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;gap:18px;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:800;font-size:21px;color:#fff;flex:none;}
+  .logo .dot{width:11px;height:11px;background:var(--cyan-400);border-radius:3px;display:inline-block;}
+  .logo .plusbadge{font-family:'Inter',sans-serif;font-weight:700;font-size:11.5px;background:var(--flare);color:#fff;padding:4px 10px;border-radius:999px;letter-spacing:.3px;}
+  .nav-links{display:flex;gap:26px;font-size:13.5px;font-weight:500;color:#fff;}
+  .nav-links a{opacity:.82;transition:opacity .15s;white-space:nowrap;}
+  .nav-links a:hover{opacity:1;}
+  .nav-links a b{color:var(--cyan-400);font-weight:700;margin-right:5px;}
+  .nav-cta{display:flex;align-items:center;gap:14px;flex:none;}
+  .nav-phone{display:flex;align-items:center;gap:7px;color:#fff;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 16px;transition:border-color .2s;}
+  .nav-phone:hover{border-color:var(--cyan-400);}
+  .btn-on-navy{background:#fff;color:var(--navy-800);}
+  .btn-on-navy:hover{background:var(--cyan-50);}
+  @media(max-width:980px){.nav-links{display:none;}}
+  @media(max-width:560px){.nav-phone span{display:none;}}
+  @media(max-width:600px){
+    .nav{flex-wrap:wrap;gap:10px;padding:12px 16px;}
+    .logo{font-size:16px;gap:6px;}
+    .logo .plusbadge{font-size:10px;padding:3px 8px;}
+    .nav-phone{padding:8px 10px;}
+    .nav-cta{gap:8px;}
+    .btn-on-navy{padding:10px 16px;font-size:13px;}
+  }
+
+  /* Hero — IMMERSIVE */
+  .hero-media{position:relative;height:88vh;min-height:600px;overflow:hidden;}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .hero-media::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(185deg, rgba(16,23,44,.78) 0%, rgba(16,23,44,.52) 40%, rgba(16,23,44,.38) 62%, rgba(16,23,44,.88) 100%);}
+  .hero-copy{position:relative;z-index:2;height:100%;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;padding:0 24px;color:#fff;}
+  .hero-copy .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);font-weight:600;font-size:12.5px;padding:8px 16px;border-radius:999px;margin-bottom:22px;letter-spacing:.3px;text-transform:uppercase;}
+  .hero-copy .badge .blip{width:7px;height:7px;background:var(--cyan-400);border-radius:50%;}
+  .hero-copy h1{font-weight:800;font-size:clamp(32px,5.2vw,58px);line-height:1.08;letter-spacing:-.5px;max-width:14ch;}
+  .hero-copy p.lead{margin-top:20px;font-size:16.5px;color:#DCE6F5;max-width:460px;}
+  .hero-ctas{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap;}
+  @media(max-width:600px){.hero-media{height:auto;min-height:0;padding:120px 0 48px;}.hero-copy{padding:0 24px;}}
+
+  /* Schedule bar — docked, overlaps base of hero */
+  .schedule-wrap{position:relative;z-index:6;padding:0 24px;}
+  .schedule-bar{max-width:1132px;margin:-54px auto 0;background:rgba(16,23,44,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:20px;box-shadow:0 30px 60px rgba(16,23,46,.35);padding:22px 30px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;color:#fff;}
+  @media(max-width:600px){.schedule-bar{margin:0 auto;border-radius:16px;}}
+  .schedule-chip{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:#DCE6F5;flex:none;}
+  .schedule-chip .pin{font-size:17px;}
+  .schedule-fields{display:flex;gap:14px;flex:1;flex-wrap:wrap;align-items:center;min-width:260px;}
+  .field{flex:1;min-width:160px;}
+  .field label{display:block;font-size:11px;font-weight:600;color:#9FB0D1;margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px;}
+  .field select{width:100%;padding:11px 13px;border-radius:10px;border:1.5px solid rgba(255,255,255,.18);font-size:13.5px;color:#fff;background:rgba(255,255,255,.07);font-family:'Inter',sans-serif;}
+  .field select:focus{outline:none;border-color:var(--cyan-400);}
+  .field select option{color:#121A2E;}
+  #scheduleBtn{white-space:nowrap;flex:none;}
+
+  /* Quick actions — connected step flow */
+  .quick{margin-top:64px;position:relative;z-index:5;background:radial-gradient(65% 100% at 50% 0%, var(--cyan-50), transparent 75%);padding-top:8px;padding-bottom:8px;}
+  .quick-eyebrow{text-align:center;color:var(--cyan-700);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:22px;}
+  .quick-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  @media(max-width:860px){.quick-grid{grid-template-columns:repeat(2,1fr);}}
+  .quick-connector{position:absolute;left:8%;right:8%;top:46px;height:0;border-top:2px dashed var(--cyan-400);opacity:.45;z-index:0;}
+  .quick-connector .node{position:absolute;top:0;width:9px;height:9px;border-radius:50%;background:var(--cyan-400);transform:translate(-50%,-50%);box-shadow:0 0 0 5px var(--cyan-50);}
+  @media(max-width:860px){.quick-connector{display:none;}}
+  .quick-card{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--navy-900),var(--navy-800));border-radius:18px;padding:24px;color:#fff;box-shadow:0 14px 30px rgba(16,23,46,.22);transition:transform .3s ease, box-shadow .3s ease;z-index:1;}
+  .quick-card::after{content:"";position:absolute;top:-45%;right:-25%;width:150px;height:150px;background:radial-gradient(circle, rgba(82,196,234,.4), transparent 70%);pointer-events:none;}
+  .quick-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(16,23,46,.35);}
+  .quick-card .step{position:absolute;top:16px;right:18px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.32);letter-spacing:1px;z-index:1;}
+  .quick-card .ic{position:relative;z-index:1;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--cyan-500),var(--cyan-400));display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:19px;box-shadow:0 8px 18px rgba(28,167,217,.45);}
+  .quick-card h4{position:relative;z-index:1;font-family:'Poppins',sans-serif;font-size:15.5px;margin-bottom:4px;}
+  .quick-card p{position:relative;z-index:1;font-size:12.5px;color:#B9C8E4;}
+
+  section{padding:88px 0;}
+  .hero-media, .hero-schedule-parent{padding:0;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .eyebrow{color:var(--cyan-700);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;display:block;}
+  .section-head h2{font-size:34px;color:var(--navy-900);font-weight:700;}
+  .section-head p{color:var(--gray-600);margin-top:12px;font-size:16px;}
+
+  /* Benefits */
+  .benefits{background:var(--cyan-50);}
+  .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media(max-width:760px){.benefits-grid{grid-template-columns:1fr;}}
+  .benefit{display:flex;gap:16px;background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 26px rgba(16,23,46,.06);transition:transform .3s ease, box-shadow .3s ease;}
+  .benefit:hover{transform:translateY(-5px);box-shadow:0 18px 36px rgba(16,23,46,.14);}
+  .benefit .ic{position:relative;z-index:1;flex:none;width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--cyan-500),var(--cyan-400));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;box-shadow:0 8px 18px rgba(28,167,217,.35);}
+  .benefit h4{font-family:'Poppins',sans-serif;font-size:16px;margin-bottom:6px;color:var(--navy-900);}
+  .benefit p{font-size:13.5px;color:var(--gray-600);}
+
+  /* Honest trust strip (no fabricated rating) */
+  .trust{position:relative;overflow:hidden;background:linear-gradient(165deg,var(--navy-900),var(--navy-800));color:#fff;border-radius:28px;margin:0 24px;padding:52px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .trust::after{content:"";position:absolute;top:-35%;right:-8%;width:320px;height:320px;background:radial-gradient(circle, rgba(82,196,234,.3), transparent 70%);pointer-events:none;}
+  .trust-left, .trust-right{position:relative;z-index:1;}
+  .trust-left h3{font-family:'Poppins',sans-serif;font-size:25px;margin-bottom:10px;}
+  .trust-left p{color:#C7D4EA;max-width:440px;}
+  .trust-right{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.08);padding:18px 26px;border-radius:16px;}
+  .trust-right .pin{font-size:26px;}
+  .trust-right b{font-family:'Poppins',sans-serif;font-size:15.5px;display:block;}
+  .trust-right small{color:#C7D4EA;font-size:12px;}
+
+  /* Payment / convenios */
+  .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:860px){.pay-grid{grid-template-columns:1fr;}}
+  .pay-card{border-radius:18px;padding:30px;background:#fff;border:1px solid #E7EDF6;text-align:center;transition:transform .3s ease, box-shadow .3s ease;}
+  .pay-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(16,23,46,.12);}
+  .pay-card .ic{position:relative;z-index:1;width:50px;height:50px;margin:0 auto 16px;border-radius:14px;background:linear-gradient(135deg,var(--cyan-500),var(--cyan-400));color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 18px rgba(28,167,217,.35);}
+  .pay-card h4{font-family:'Poppins',sans-serif;margin-bottom:8px;}
+  .pay-card p{font-size:13.5px;color:var(--gray-600);}
+
+  /* About */
+  .about{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.about{grid-template-columns:1fr;}}
+  .about-media{position:relative;}
+  .about-media img{border-radius:22px;box-shadow:var(--shadow);height:440px;width:100%;object-fit:cover;}
+  .about-badge{position:absolute;bottom:20px;left:20px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 14px 30px rgba(16,23,46,.22);display:flex;align-items:center;gap:12px;}
+  .about-badge .ic{flex:none;width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--cyan-500),var(--cyan-400));color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .about-badge b{font-family:'Poppins',sans-serif;font-size:15px;color:var(--navy-900);display:block;}
+  .about-badge small{color:var(--gray-600);font-size:11.5px;}
+  .about-list{margin-top:22px;display:flex;flex-direction:column;gap:14px;}
+  .about-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--gray-600);}
+  .about-list b{color:var(--ink);}
+  .check{flex:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--cyan-500),var(--cyan-400));color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px;box-shadow:0 6px 14px rgba(28,167,217,.35);}
+
+  /* Contact */
+  .contact{background:var(--cyan-50);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:stretch;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-card{background:#fff;border-radius:20px;padding:36px;box-shadow:var(--shadow);}
+  .contact-item{display:flex;gap:14px;margin-bottom:22px;}
+  .contact-item .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--cyan-100);color:var(--cyan-700);display:flex;align-items:center;justify-content:center;}
+  .contact-item h5{font-size:14px;color:var(--gray-600);margin-bottom:2px;}
+  .contact-item p{font-weight:600;font-size:15px;}
+  .map-wrap{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);min-height:340px;}
+  .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;}
+
+  /* CTA banner */
+  .cta-banner{background:linear-gradient(120deg,var(--cyan-600),var(--navy-800));color:#fff;text-align:center;border-radius:28px;margin:0 24px;padding:64px 24px;}
+  .cta-banner h2{font-family:'Poppins',sans-serif;font-size:32px;margin-bottom:14px;}
+  .cta-banner p{color:#DCEEF7;max-width:520px;margin:0 auto 28px;}
+
+  footer{background:var(--navy-900);color:#AEBEDB;padding:56px 0 24px;margin-top:88px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr;}}
+  footer h5{color:#fff;font-family:'Poppins',sans-serif;font-size:15px;margin-bottom:16px;}
+  footer li{margin-bottom:10px;font-size:14px;}
+  footer .foot-logo{display:flex;align-items:center;gap:8px;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:19px;margin-bottom:12px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#8396BC;}
+  .foot-bottom a{color:#AEBEDB;text-decoration:underline;transition:color .15s;}
+  .foot-bottom a:hover{color:#fff;}
+
+  .whatsapp-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:60;font-size:28px;transition:transform .4s ease;}
+  .whatsapp-float:hover{transform:scale(1.1) rotate(6deg);}
+  .whatsapp-float .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:#FF4D4D;border-radius:50%;border:2px solid #fff;animation:pulseDot 2s ease-in-out infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(1.2);}}
+
+  /* Scroll reveal (progressive enhancement) */
+  .reveal, .reveal-stagger > *{opacity:1;transform:none;}
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .js .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .js .reveal-stagger.is-visible > *:nth-child(1){transition-delay:.04s;}
+  .js .reveal-stagger.is-visible > *:nth-child(2){transition-delay:.09s;}
+  .js .reveal-stagger.is-visible > *:nth-child(3){transition-delay:.14s;}
+  .js .reveal-stagger.is-visible > *:nth-child(4){transition-delay:.19s;}
+  .js .reveal-stagger.is-visible > *:nth-child(5){transition-delay:.24s;}
+  .js .reveal-stagger.is-visible > *:nth-child(6){transition-delay:.29s;}
+  .js .reveal-stagger.is-visible > *:nth-child(7){transition-delay:.34s;}
+  .js .reveal-stagger.is-visible > *:nth-child(8){transition-delay:.39s;}
+  .js .reveal-stagger.is-visible > *:nth-child(9){transition-delay:.44s;}
+  .js .reveal-stagger.is-visible > *:nth-child(10){transition-delay:.49s;}
+  .js .reveal-stagger.is-visible > *:nth-child(11){transition-delay:.54s;}
+  .js .reveal-stagger.is-visible > *:nth-child(12){transition-delay:.59s;}
+
+  /* Border-run: rotating gradient border on hover */
+  @property --angle{syntax:'<angle>';inherits:false;initial-value:0deg;}
+  .border-run{position:relative;isolation:isolate;}
+  .border-run::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;
+    background:conic-gradient(from var(--angle), transparent 0deg, var(--cyan-500) 60deg, var(--cyan-400) 140deg, transparent 200deg, transparent 360deg);
+    -webkit-mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    mask:linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation:borderRun 6s linear infinite;opacity:0;transition:opacity .3s;pointer-events:none;z-index:2;}
+  .border-run:hover::before{opacity:1;animation-duration:2.2s;}
+  @keyframes borderRun{100%{--angle:360deg;}}
+
+  /* Gallery scroller: two rows, opposite directions, pause on hover */
+  .gallery-rows{display:flex;flex-direction:column;gap:22px;padding:12px 0 8px;}
+  .gallery-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+  .gallery-track{display:flex;width:max-content;gap:22px;animation:galleryLeft 55s linear infinite;}
+  .gallery-track.reverse{animation-name:galleryRight;}
+  .gallery-wrap:hover .gallery-track{animation-play-state:paused;}
+  @keyframes galleryLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  @keyframes galleryRight{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+  .gallery-card{position:relative;width:280px;height:320px;flex-shrink:0;border-radius:22px;overflow:hidden;display:block;box-shadow:0 8px 20px rgba(16,23,46,.1);transition:transform .5s ease, box-shadow .5s ease;}
+  .gallery-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(16,23,46,.22);}
+  .gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+  .gallery-card:hover img{transform:scale(1.1);}
+  .gallery-card .overlay{position:absolute;inset:0;background:linear-gradient(0deg, var(--navy-900) 0%, rgba(16,23,46,.6) 42%, rgba(16,23,46,.05) 75%);}
+  .gallery-card .content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;}
+  .gallery-card .gic{width:42px;height:42px;border-radius:12px;background:var(--cyan-500);display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px;}
+  .gallery-card h4{font-family:'Poppins',sans-serif;font-size:16.5px;margin-bottom:4px;}
+  .gallery-card p{font-size:12.5px;color:#DCEEF7;}
+  @media(max-width:600px){.gallery-card{width:230px;height:280px;}}
+
+  @media (prefers-reduced-motion: reduce){
+    .gallery-track{animation:none;}
+    .border-run::before{animation:none;}
+    .js .reveal, .js .reveal-stagger > *{transition:none;opacity:1;transform:none;}
+    .whatsapp-float .ping{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-links">
+      <span>Av. Nove de Agosto, 2252 — Jaguaré, ES</span>
+      <span>(27) 99902-5921</span>
+    </div>
+    <div class="utility-links">
+      <a href="https://www.google.com/maps/search/?api=1&query=CODE+DENTISTAS+%2F+%2B+Odonto+Dr.+Leonardo+R.+Lima+Jaguar%C3%A9+ES" target="_blank">Ver no Google Maps →</a>
+    </div>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <div class="nav">
+    <div class="logo"><span class="dot"></span>CODE DENTISTAS <span class="plusbadge">+Odonto</span></div>
+    <nav class="nav-links">
+      <a href="#inicio"><b>00</b>Início</a>
+      <a href="#tratamentos"><b>01</b>Tratamentos</a>
+      <a href="#sobre"><b>02</b>Sobre</a>
+      <a href="#pagamento"><b>03</b>Pagamento</a>
+      <a href="#contato"><b>04</b>Contato</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+5527999025921">📞 <span>(27) 99902-5921</span></a>
+      <a class="btn btn-on-navy" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank">Agendar no WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section id="inicio">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1777331903190-341a3dd0441b?fm=jpg&q=80&w=1800&auto=format&fit=crop" alt="Dentista conversando com paciente em consultório claro e moderno">
+    <div class="hero-copy">
+      <span class="badge"><span class="blip"></span> Odontologia em Jaguaré · ES</span>
+      <h1>Cuidado odontológico de perto, no seu bairro</h1>
+      <p class="lead">CODE DENTISTAS / +Odonto reúne avaliação, tratamento e agendamento rápido pelo WhatsApp — com o Dr. Leonardo R. Lima à frente do atendimento, no centro de Jaguaré.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank">Agendar Avaliação →</a>
+        <a class="btn btn-ghost-light" href="#tratamentos">Ver tratamentos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="schedule-wrap">
+    <div class="schedule-bar reveal" id="agendar">
+      <div class="schedule-chip">
+        <span class="pin">📍</span>
+        <a href="https://www.google.com/maps?q=Av.+Nove+de+Agosto,+2252,+Jaguar%C3%A9+-+ES&output=embed" target="_blank" style="color:#fff;">Av. Nove de Agosto, 2252<br>Jaguaré, ES</a>
+      </div>
+      <div class="schedule-fields">
+        <div class="field">
+          <label for="fieldTreatment">Tratamento desejado</label>
+          <select id="fieldTreatment">
+            <option value="">Qualquer tratamento</option>
+            <option>Avaliação e Diagnóstico</option>
+            <option>Limpeza e Profilaxia</option>
+            <option>Restauração Dentária</option>
+            <option>Alinhadores Transparentes</option>
+            <option>Ortodontia</option>
+            <option>Implantodontia</option>
+            <option>Próteses Dentárias</option>
+            <option>Endodontia (Canal)</option>
+            <option>Periodontia</option>
+            <option>Cirurgias Orais</option>
+            <option>Radiografia Digital</option>
+            <option>Urgência Odontológica</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fieldPeriod">Prefere ser atendido</label>
+          <select id="fieldPeriod">
+            <option value="">Qualquer horário</option>
+            <option>Manhã</option>
+            <option>Tarde</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" id="scheduleBtn" class="btn btn-primary">Agendar →</button>
+    </div>
+  </div>
+</section>
+
+<div class="container quick">
+  <div class="quick-eyebrow reveal">Como funciona</div>
+  <div class="quick-grid reveal-stagger">
+    <div class="quick-connector">
+      <span class="node" style="left:12.5%"></span>
+      <span class="node" style="left:37.5%"></span>
+      <span class="node" style="left:62.5%"></span>
+      <span class="node" style="left:87.5%"></span>
+    </div>
+    <a class="quick-card border-run" href="https://wa.me/5527999025921" target="_blank">
+      <span class="step">01</span>
+      <div class="ic">📅</div>
+      <h4>Agendar Avaliação</h4>
+      <p>Resposta rápida pelo WhatsApp</p>
+    </a>
+    <a class="quick-card border-run" href="#tratamentos">
+      <span class="step">02</span>
+      <div class="ic">🦷</div>
+      <h4>Nossos Tratamentos</h4>
+      <p>Do preventivo ao restaurador</p>
+    </a>
+    <a class="quick-card border-run" href="#pagamento">
+      <span class="step">03</span>
+      <div class="ic">💳</div>
+      <h4>Formas de Pagamento</h4>
+      <p>Crédito, débito e aproximação</p>
+    </a>
+    <a class="quick-card border-run" href="#contato">
+      <span class="step">04</span>
+      <div class="ic">📍</div>
+      <h4>Nosso Endereço</h4>
+      <p>Av. Nove de Agosto, 2252</p>
+    </a>
+  </div>
+</div>
+
+<section id="tratamentos" style="padding-bottom:56px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tratamentos</span>
+      <h2>Cuidado completo para cada fase do seu sorriso</h2>
+      <p>Avaliação cuidadosa e tratamento acompanhado de perto, do preventivo ao restaurador.</p>
+    </div>
+  </div>
+  <div class="gallery-rows">
+    <div class="gallery-wrap">
+      <div class="gallery-track">
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Avalia%C3%A7%C3%A3o%20e%20Diagn%C3%B3stico."><img src="https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Avaliação e Diagnóstico"><div class="overlay"></div><div class="content"><div class="gic">🩺</div><h4>Avaliação e Diagnóstico</h4><p>Primeiro passo para o seu tratamento</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Limpeza%20e%20Profilaxia."><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Limpeza e Profilaxia"><div class="overlay"></div><div class="content"><div class="gic">✨</div><h4>Limpeza e Profilaxia</h4><p>Saúde bucal em dia</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Restaura%C3%A7%C3%A3o%20Dent%C3%A1ria."><img src="https://images.unsplash.com/photo-1663755489920-5e09f66d011a?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Restauração Dentária"><div class="overlay"></div><div class="content"><div class="gic">🦷</div><h4>Restauração Dentária</h4><p>Tratamento de cáries e desgastes</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Alinhadores%20Transparentes."><img src="https://images.unsplash.com/photo-1777793636393-a0fec488f3fb?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Alinhadores Transparentes"><div class="overlay"></div><div class="content"><div class="gic">😁</div><h4>Alinhadores Transparentes</h4><p>Alinhamento discreto do sorriso</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Ortodontia."><img src="https://images.unsplash.com/photo-1720685193964-4529228a33c1?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Ortodontia"><div class="overlay"></div><div class="content"><div class="gic">😬</div><h4>Ortodontia</h4><p>Aparelhos para todas as idades</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Implantodontia."><img src="https://images.unsplash.com/photo-1771442873035-474765b40ac6?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Implantodontia"><div class="overlay"></div><div class="content"><div class="gic">🔩</div><h4>Implantodontia</h4><p>Recupere dentes perdidos</p></div></a>
+        <!-- duplicado p/ loop contínuo -->
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Avalia%C3%A7%C3%A3o%20e%20Diagn%C3%B3stico."><img src="https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Avaliação e Diagnóstico"><div class="overlay"></div><div class="content"><div class="gic">🩺</div><h4>Avaliação e Diagnóstico</h4><p>Primeiro passo para o seu tratamento</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Limpeza%20e%20Profilaxia."><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Limpeza e Profilaxia"><div class="overlay"></div><div class="content"><div class="gic">✨</div><h4>Limpeza e Profilaxia</h4><p>Saúde bucal em dia</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Restaura%C3%A7%C3%A3o%20Dent%C3%A1ria."><img src="https://images.unsplash.com/photo-1663755489920-5e09f66d011a?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Restauração Dentária"><div class="overlay"></div><div class="content"><div class="gic">🦷</div><h4>Restauração Dentária</h4><p>Tratamento de cáries e desgastes</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Alinhadores%20Transparentes."><img src="https://images.unsplash.com/photo-1777793636393-a0fec488f3fb?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Alinhadores Transparentes"><div class="overlay"></div><div class="content"><div class="gic">😁</div><h4>Alinhadores Transparentes</h4><p>Alinhamento discreto do sorriso</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Ortodontia."><img src="https://images.unsplash.com/photo-1720685193964-4529228a33c1?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Ortodontia"><div class="overlay"></div><div class="content"><div class="gic">😬</div><h4>Ortodontia</h4><p>Aparelhos para todas as idades</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Implantodontia."><img src="https://images.unsplash.com/photo-1771442873035-474765b40ac6?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Implantodontia"><div class="overlay"></div><div class="content"><div class="gic">🔩</div><h4>Implantodontia</h4><p>Recupere dentes perdidos</p></div></a>
+      </div>
+    </div>
+    <div class="gallery-wrap">
+      <div class="gallery-track reverse">
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Pr%C3%B3teses%20Dent%C3%A1rias."><img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Próteses Dentárias"><div class="overlay"></div><div class="content"><div class="gic">🪥</div><h4>Próteses Dentárias</h4><p>Fixas e removíveis sob medida</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Endodontia%20(Canal)."><img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Endodontia (Canal)"><div class="overlay"></div><div class="content"><div class="gic">🩹</div><h4>Endodontia (Canal)</h4><p>Tratamento com menos desconforto</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Periodontia."><img src="https://images.unsplash.com/photo-1777793389944-f7165259a05c?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Periodontia"><div class="overlay"></div><div class="content"><div class="gic">🧬</div><h4>Periodontia</h4><p>Saúde da gengiva em dia</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Cirurgias%20Orais."><img src="https://images.unsplash.com/photo-1771442873038-dda05b6ca447?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Cirurgias Orais"><div class="overlay"></div><div class="content"><div class="gic">🔬</div><h4>Cirurgias Orais</h4><p>Extrações com segurança</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Radiografia%20Digital."><img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Radiografia Digital"><div class="overlay"></div><div class="content"><div class="gic">📷</div><h4>Radiografia Digital</h4><p>Diagnóstico preciso por imagem</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Preciso%20de%20uma%20Urg%C3%AAncia%20Odontol%C3%B3gica."><img src="https://images.unsplash.com/photo-1657470179447-0f5aa16daa91?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Urgência Odontológica"><div class="overlay"></div><div class="content"><div class="gic">🚨</div><h4>Urgência Odontológica</h4><p>Atendimento prioritário pra dores</p></div></a>
+        <!-- duplicado p/ loop contínuo -->
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Pr%C3%B3teses%20Dent%C3%A1rias."><img src="https://images.unsplash.com/photo-1593022356769-11f762e25ed9?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Próteses Dentárias"><div class="overlay"></div><div class="content"><div class="gic">🪥</div><h4>Próteses Dentárias</h4><p>Fixas e removíveis sob medida</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Endodontia%20(Canal)."><img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Endodontia (Canal)"><div class="overlay"></div><div class="content"><div class="gic">🩹</div><h4>Endodontia (Canal)</h4><p>Tratamento com menos desconforto</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Periodontia."><img src="https://images.unsplash.com/photo-1777793389944-f7165259a05c?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Periodontia"><div class="overlay"></div><div class="content"><div class="gic">🧬</div><h4>Periodontia</h4><p>Saúde da gengiva em dia</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Cirurgias%20Orais."><img src="https://images.unsplash.com/photo-1771442873038-dda05b6ca447?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Cirurgias Orais"><div class="overlay"></div><div class="content"><div class="gic">🔬</div><h4>Cirurgias Orais</h4><p>Extrações com segurança</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Radiografia%20Digital."><img src="https://images.unsplash.com/photo-1522849696084-818b29dfe210?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Radiografia Digital"><div class="overlay"></div><div class="content"><div class="gic">📷</div><h4>Radiografia Digital</h4><p>Diagnóstico preciso por imagem</p></div></a>
+        <a class="gallery-card" target="_blank" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Preciso%20de%20uma%20Urg%C3%AAncia%20Odontol%C3%B3gica."><img src="https://images.unsplash.com/photo-1657470179447-0f5aa16daa91?fm=jpg&q=75&w=700&auto=format&fit=crop" alt="Urgência Odontológica"><div class="overlay"></div><div class="content"><div class="gic">🚨</div><h4>Urgência Odontológica</h4><p>Atendimento prioritário pra dores</p></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por que o CODE DENTISTAS</span>
+      <h2>Um consultório, um profissional, um atendimento de verdade</h2>
+      <p>Sem letra miúda: aqui você fala direto com quem vai te atender.</p>
+    </div>
+    <div class="benefits-grid reveal-stagger">
+      <div class="benefit border-run"><div class="ic">①</div><div><h4>Atendimento próximo e humano</h4><p>Consultório pequeno, sem parecer linha de produção.</p></div></div>
+      <div class="benefit border-run"><div class="ic">②</div><div><h4>Avaliação sem compromisso</h4><p>Você conhece o tratamento antes de decidir qualquer coisa.</p></div></div>
+      <div class="benefit border-run"><div class="ic">③</div><div><h4>Agendamento rápido pelo WhatsApp</h4><p>Resposta direto com a equipe, sem central de atendimento.</p></div></div>
+      <div class="benefit border-run"><div class="ic">④</div><div><h4>Pagamento facilitado</h4><p>Cartão de crédito, débito e pagamento por aproximação (NFC).</p></div></div>
+      <div class="benefit border-run"><div class="ic">⑤</div><div><h4>No centro de Jaguaré</h4><p>Av. Nove de Agosto, 2252 — fácil de chegar, fácil de agendar.</p></div></div>
+      <div class="benefit border-run"><div class="ic">⑥</div><div><h4>Dr. Leonardo R. Lima à frente</h4><p>Acompanhamento direto do profissional responsável pelo consultório.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="trust reveal">
+    <div class="trust-left">
+      <h3>Consultório novo em Jaguaré</h3>
+      <p>CODE DENTISTAS / +Odonto está começando agora no bairro — venha conhecer o espaço e marcar sua primeira avaliação.</p>
+    </div>
+    <div class="trust-right">
+      <span class="pin">📍</span>
+      <div>
+        <b>Av. Nove de Agosto, 2252</b>
+        <small>Jaguaré, ES · 29950-000</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pagamento">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pagamento</span>
+      <h2>Cuidar do seu sorriso sem complicação</h2>
+      <p>Formas de pagamento disponíveis direto no consultório.</p>
+    </div>
+    <div class="pay-grid reveal-stagger">
+      <div class="pay-card border-run"><div class="ic">💳</div><h4>Cartão de Crédito</h4><p>Aceito direto no consultório.</p></div>
+      <div class="pay-card border-run"><div class="ic">🏦</div><h4>Cartão de Débito</h4><p>Pagamento rápido e sem burocracia.</p></div>
+      <div class="pay-card border-run"><div class="ic">📲</div><h4>Aproximação (NFC)</h4><p>Pagamento por celular ou cartão por aproximação.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container about reveal-stagger">
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?fm=jpg&q=80&w=1000&auto=format&fit=crop" alt="Consultório odontológico claro e moderno">
+      <div class="about-badge">
+        <div class="ic">🦷</div>
+        <div>
+          <b>Dr. Leonardo R. Lima</b>
+          <small>Profissional responsável</small>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Sobre o consultório</span>
+      <h2 style="font-size:30px;color:var(--navy-900);font-weight:700;">CODE DENTISTAS / +Odonto, no centro de Jaguaré</h2>
+      <p style="color:var(--gray-600);margin-top:14px;">Um consultório odontológico pensado para atendimento próximo: avaliação cuidadosa, tratamento explicado em detalhes e agendamento sem complicação, direto pelo WhatsApp. Dr. Leonardo R. Lima acompanha o atendimento do início ao fim.</p>
+      <ul class="about-list">
+        <li><span class="check">✓</span><span><b>Avaliação completa</b> antes de qualquer tratamento.</span></li>
+        <li><span class="check">✓</span><span><b>Atendimento direto</b> com o profissional responsável.</span></li>
+        <li><span class="check">✓</span><span><b>Localização central</b> em Jaguaré, fácil acesso.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos agendar sua avaliação?</h2>
+    </div>
+    <div class="contact-grid reveal-stagger">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div><h5>Endereço</h5><p>Av. Nove de Agosto, 2252 — Jaguaré, ES, 29950-000</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📞</div>
+          <div><h5>Telefone / WhatsApp</h5><p>(27) 99902-5921</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">🗺️</div>
+          <div><h5>Google Maps</h5><p><a href="https://www.google.com/maps/search/?api=1&query=CODE+DENTISTAS+%2F+%2B+Odonto+Dr.+Leonardo+R.+Lima+Jaguar%C3%A9+ES" target="_blank" style="text-decoration:underline;">Ver localização e traçar rota →</a></p></div>
+        </div>
+        <a class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank">Falar no WhatsApp</a>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=Av.+Nove+de+Agosto,+2252,+Jaguar%C3%A9+-+ES&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-banner reveal">
+    <h2>Vamos cuidar do seu sorriso?</h2>
+    <p>Agende sua avaliação com o Dr. Leonardo R. Lima no CODE DENTISTAS / +Odonto, em Jaguaré.</p>
+    <a class="btn btn-ghost-light" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank">📅 Agendar Avaliação</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="foot-logo"><span class="dot" style="width:10px;height:10px;background:var(--cyan-500);border-radius:3px;display:inline-block;"></span>CODE DENTISTAS / +Odonto</div>
+      <p style="max-width:320px;font-size:13.5px;">Consultório odontológico no centro de Jaguaré, ES. Dr. Leonardo R. Lima — atendimento próximo, do primeiro contato ao retorno.</p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#pagamento">Pagamento</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contato</h5>
+      <ul>
+        <li>Av. Nove de Agosto, 2252 — Jaguaré, ES</li>
+        <li>(27) 99902-5921</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container foot-bottom">
+    <span>© 2026 CODE DENTISTAS / +Odonto. Todos os direitos reservados.</span>
+    <span>Desenvolvido por <a href="https://disruptivo.site" target="_blank">Disruptivo</a></span>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5527999025921?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank">📱<span class="ping"></span></a>
+
+<script>
+(function(){
+  var scheduleBtn = document.getElementById('scheduleBtn');
+  if (scheduleBtn) {
+    scheduleBtn.addEventListener('click', function(){
+      var treatment = document.getElementById('fieldTreatment').value;
+      var period = document.getElementById('fieldPeriod').value;
+      var msg = 'Olá! Gostaria de agendar uma avaliação';
+      if (treatment) msg += ' de ' + treatment;
+      if (period) msg += ', de preferência no período da ' + period.toLowerCase();
+      msg += '.';
+      window.open('https://wa.me/5527999025921?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
+
+  var header = document.getElementById('siteHeader');
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 12); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>
